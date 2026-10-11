@@ -1020,12 +1020,65 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
 .un-scene{margin-top:8px}
 .un-seat.s-top{top:2px}
 .un-hand{padding-bottom:10px}
+/* Coin-Menü neu */
+.cfbet{display:flex;flex-direction:column;gap:3px}
+.cfl{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ac);font-weight:700}
+.cfbet .field{height:50px;border-color:color-mix(in srgb,var(--ac) 50%,var(--line2));background:var(--bg)}
+.cfbet .field input{font-size:1.3rem}.cfbet .field i{font-size:1.3rem}
+.cfbet .qk3 button{height:50px;min-width:42px}.cfbet .qk3 button[data-q=min]{display:block}
+.cfp .sides{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:0}
+.cfp .sides button{height:42px;border-radius:8px;font-weight:700;font-size:.9rem;letter-spacing:.06em;background:var(--panel2);border:1px solid var(--line2);color:var(--muted)}
+.cfp .sides button.on{border-color:var(--ac);color:var(--ac);background:color-mix(in srgb,var(--ac) 14%,var(--panel2))}
+.pay{display:flex;align-items:stretch;justify-content:space-between;gap:8px;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:6px 10px}
+.payl{display:flex;flex-direction:column;justify-content:center;min-width:0}
+.payl span{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.payl b{font:700 1.5rem var(--ff-d);color:var(--ac);line-height:1.1}
+.payr{display:flex;gap:10px;align-items:center}
+.payr div{display:flex;flex-direction:column;align-items:flex-end}
+.payr span{font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.payr b{font:700 .9rem var(--ff-d)}
+.payr .bonc:has(.bon:empty),.payr .bonc:has(b[data-none]){display:none}
+.cfhid{display:none}
+.cfp .risks{margin:0}
+@media(max-height:700px){.cfp .risk small{display:none}.cfbet .field,.cfbet .qk3 button{height:42px}}
+/* Konto und Anmeldung */
+.acct{display:flex;align-items:center;gap:8px;height:38px;padding:0 4px 0 0;border-radius:19px;color:var(--text);min-width:0}
+.acpic{width:36px;height:36px;border-radius:50%;overflow:hidden;border:2px solid var(--brassd);background:var(--panel2);display:flex;align-items:center;justify-content:center;flex:none;color:var(--muted);font-size:1.25rem}
+.acpic img{width:100%;height:100%;object-fit:cover;display:block}
+.actxt{display:none;font:700 .8rem var(--ff-u);max-width:110px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media(min-width:760px){.actxt{display:block}}
+.bt{margin-left:0}
+.authbox{max-width:360px;text-align:center}
+.authlogo{width:44px;height:44px;display:block;margin:0 auto 6px}
+.authstep{display:flex;flex-direction:column;gap:9px}
+.authstep[hidden]{display:none}
+.authbox label{text-align:left;margin:4px 0 -3px}
+.auin{width:100%;height:46px;padding:0 12px;border-radius:8px;background:var(--bg);border:1px solid var(--line2);color:var(--text);font:600 1rem var(--ff-u);outline:none}
+.auin:focus{border-color:#5fc08f}
+.auin.code{text-align:center;font:700 1.6rem var(--ff-d);letter-spacing:.5em;padding-left:.5em}
+.gbtn{display:flex;align-items:center;justify-content:center;gap:10px;height:46px;border-radius:8px;background:#fff;color:#2b2f36;font:600 .95rem var(--ff-u);border:1px solid #dadce0}
+.gbtn svg{width:20px;height:20px}
+#auGBox{display:flex;justify-content:center;min-height:44px}
+.auor{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;margin:2px 0}
+.auor::before,.auor::after{content:"";flex:1;height:1px;background:var(--line2)}
+.aumsg{min-height:1.1em;font-size:.8rem;color:var(--muted)}.aumsg.err{color:#ff8b7e}
+.aunote{font-size:.68rem;line-height:1.35;color:#d9c48a;background:rgba(201,162,77,.1);border:1px solid rgba(201,162,77,.3);border-radius:8px;padding:6px 9px;text-align:left}
+.audemo{font-size:.85rem;color:#d9c48a;background:rgba(201,162,77,.1);border:1px dashed rgba(201,162,77,.45);border-radius:8px;padding:7px}.audemo b{font:700 1.15rem var(--ff-d);letter-spacing:.2em;color:#f2e3b6}
+.aulinks{display:flex;justify-content:space-between}
+.aulinks button,.aulink{color:#8fd2ad;font-size:.8rem;text-decoration:underline;padding:4px}
+.aulink.out{color:#ff8b7e;align-self:center}
+.auavatar{display:flex;align-items:center;gap:14px;justify-content:center}
+.aupic{width:76px;height:76px;border-radius:50%;overflow:hidden;border:3px solid #5fc08f;background:var(--panel2);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:2.2rem}
+.aupic img{width:100%;height:100%;object-fit:cover}
+.aubtns{display:flex;flex-direction:column;align-items:flex-start;gap:2px}
+.aubtns .main{width:auto;padding:0 14px;height:38px}
+.pl-clock .bb.low,.pl-clock .t3.clk.low{animation:none!important}
 </style>
 </head>
 <body>
 <div class="app">
   <header class="top">
-    <div class="brand"><svg class="logo" viewBox="0 0 40 40"><defs><linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e6c883"/><stop offset="1" stop-color="#8a6b2a"/></linearGradient></defs><circle cx="20" cy="20" r="18" fill="#14171b" stroke="url(#lg1)" stroke-width="2"/><circle cx="20" cy="20" r="13.5" fill="none" stroke="url(#lg1)" stroke-width="1" stroke-dasharray="3 3"/><path d="M14 11v18h12" fill="none" stroke="url(#lg1)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div class="brand"><button id="acctBtn" class="acct" aria-label="Konto"></button>
       <div class="bt"><b>LHX</b><span id="gname">CRASH-RUG</span></div></div>
     <div class="tools">
       <button id="dailyBtn" class="tool dailybtn" aria-label="Daily Reward"><i data-ic="gift"></i><span id="dailyTxt">Daily</span></button>
@@ -1098,14 +1151,16 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
       
     <section class="dock cfp">
       <div class="kpis hidekp"><div class="kpi"><small>Aktuell riskiert</small><b id="cfRisked">$0.00</b></div><div class="kpi"><small>Gewinnserie</small><b id="cfStreak">0</b></div><div class="kpi"><small>Gesamt</small><b id="cfTotal">1.00×</b></div></div>
-      <div class="cfrow"><div class="sides"><button data-side="kopf" class="on">Kopf</button><button data-side="zahl">Zahl</button></div><div class="betrow"><div class="field"><i>$</i><input id="cfBet" type="number" inputmode="decimal" min="0.10"  step="0.01" value="10.00"></div><div class="qk3 qb"><button data-q="min">Min</button><button data-q="half">½</button><button data-q="double">2×</button><button data-q="max">Max</button></div></div></div>
+      <div class="cfbet"><span class="cfl">Einsatz</span><div class="betrow"><div class="field"><i>$</i><input id="cfBet" type="number" inputmode="decimal" min="0.10"  step="0.01" value="10.00"></div><div class="qk3 qb"><button data-q="min">Min</button><button data-q="half">½</button><button data-q="double">2×</button><button data-q="max">Max</button></div></div></div>
+      <div class="sides"><button data-side="kopf" class="on">Kopf</button><button data-side="zahl">Zahl</button></div>
       <div class="risks" id="cfRisks"></div>
-      <div class="locknote" id="cfLockNote"><i data-ic="lock"></i> Risk Level gesperrt, bis du verlierst oder Gewinn sicherst</div>
+      <div class="locknote" id="cfLockNote"><i data-ic="lock"></i> Level gesperrt bis Verlust oder Cash Out</div>
       <div class="riskbanner medium" id="cfBanner"></div>
-      <div class="sum">
-        <div><span>Einsatz</span><b id="sEin">$10.00</b></div><div><span>Level</span><b id="sRisk">MEDIUM</b></div><div><span>Multiplikator</span><b id="sMult">1.80×</b></div>
-        <div><span>Bonus</span><b id="sBon" class="bon">–</b></div><div><span>Auszahlung</span><b id="sPay" class="big">$18.00</b></div><div><span>Chance</span><b id="sCh">42 %</b></div>
+      <div class="pay">
+        <div class="payl"><span>Auszahlung bei Gewinn</span><b id="sPay" class="big">$18.00</b></div>
+        <div class="payr"><div><span>Multi</span><b id="sMult">1.80×</b></div><div><span>Chance</span><b id="sCh">42 %</b></div><div class="bonc"><span>Bonus</span><b id="sBon" class="bon">–</b></div></div>
       </div>
+      <div class="cfhid"><b id="sEin">$10.00</b><b id="sRisk">MEDIUM</b></div>
       <button class="main" id="cfFlip">Münze werfen</button>
       <button class="main" id="cfCash" hidden>Gewinn sichern</button>
       <button class="main sec rst" id="cfReset">Guthaben zurücksetzen</button>
@@ -1261,6 +1316,41 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
   </div>
 </div>
 
+
+<div class="modal" id="authModal" hidden role="dialog" aria-modal="true" aria-label="Anmeldung">
+ <div class="mbox authbox">
+  <button class="mclose" id="authClose" aria-label="Schließen"><i data-ic="close"></i></button>
+  <svg class="authlogo" viewBox="0 0 40 40"><defs><linearGradient id="lg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e6c883"/><stop offset="1" stop-color="#8a6b2a"/></linearGradient></defs><circle cx="20" cy="20" r="18" fill="#14171b" stroke="url(#lg2)" stroke-width="2"/><circle cx="20" cy="20" r="13.5" fill="none" stroke="url(#lg2)" stroke-width="1" stroke-dasharray="3 3"/><path d="M14 11v18h12" fill="none" stroke="url(#lg2)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <div class="authstep" id="auStep1">
+    <div class="mtitle">ANMELDEN</div><div class="msub">Melde dich an, um zu spielen.</div>
+    <button class="gbtn" id="auGoogle"><svg viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.5 5.4 2.6 13.2l7.9 6.1C12.4 13.6 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.5 5.8c4.4-4.1 7.1-10.1 7.1-17.5z"/><path fill="#FBBC05" d="M10.5 28.7c-.5-1.5-.8-3-.8-4.7s.3-3.2.8-4.7l-7.9-6.1C.9 16.4 0 20.1 0 24s.9 7.6 2.6 10.8l7.9-6.1z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.5-5.8c-2.1 1.4-4.8 2.3-8.4 2.3-6.3 0-11.6-4.1-13.5-9.8l-7.9 6.1C6.5 42.6 14.6 48 24 48z"/></svg><span>Mit Google anmelden</span></button>
+    <div id="auGBox" hidden></div>
+    <div class="auor"><span>oder per E-Mail</span></div>
+    <label for="auEmail">E-Mail-Adresse</label>
+    <input id="auEmail" class="auin" type="email" autocomplete="email" placeholder="name@beispiel.de">
+    <button class="main" id="auSend">Code senden</button>
+    <div class="aumsg" id="auMsg1"></div>
+    <p class="aunote" id="auDemoNote">Demo-Modus: Hier läuft kein Mailserver und keine Google-Anbindung. Der Code wird dir direkt angezeigt, das Konto bleibt nur auf diesem Gerät.</p>
+  </div>
+  <div class="authstep" id="auStep2" hidden>
+    <div class="mtitle">CODE EINGEBEN</div><div class="msub" id="auSub2"></div>
+    <input id="auCode" class="auin code" inputmode="numeric" maxlength="6" autocomplete="one-time-code" placeholder="000000">
+    <div class="audemo" id="auDemo" hidden></div>
+    <button class="main" id="auVerify">Bestätigen</button>
+    <div class="aulinks"><button id="auResend">Code erneut senden</button><button id="auBack">Zurück</button></div>
+    <div class="aumsg" id="auMsg2"></div>
+  </div>
+  <div class="authstep" id="auStep3" hidden>
+    <div class="mtitle">PROFIL</div><div class="msub">Wähle deinen Benutzernamen. Ein Profilbild ist optional.</div>
+    <div class="auavatar"><div class="aupic" id="auPic"></div><div class="aubtns"><button class="main sec" id="auPick">Profilbild wählen</button><button class="aulink" id="auPicDel" hidden>Bild entfernen</button></div><input type="file" id="auFile" accept="image/*" hidden></div>
+    <label for="auName">Benutzername</label>
+    <input id="auName" class="auin" maxlength="16" autocomplete="nickname" placeholder="z. B. Lucky_7">
+    <button class="main" id="auSave">Speichern</button>
+    <button class="aulink out" id="auOut" hidden>Abmelden</button>
+    <div class="aumsg" id="auMsg3"></div>
+  </div>
+ </div>
+</div>
 <script>
 (() => {
   const START = 1000, MIN_BET = 0.10, RATE = 0.05, SLOTS = 14, AXIS_W = 70, TAX = 0.1;
@@ -1296,7 +1386,8 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
     key:'<circle cx="8" cy="12" r="4"/><path d="M12 12h9M18 12v3M21 12v2.5"/>',
     flag:'<path d="M6 21V4M6 5h11l-2.5 3.5L17 12H6"/>',
     clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
-    check:'<path d="M5 12.5l4.5 4.5L19 7"/>'
+    check:'<path d="M5 12.5l4.5 4.5L19 7"/>',
+    user:'<circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20c.8-4 4-6 7.5-6s6.700 2 7.500 6"/>'
   };
   const ic = (n, c = '') => `<i class="ic ${c}"><svg viewBox="0 0 24 24">${ICON[n] || ''}</svg></i>`;
   document.querySelectorAll('[data-ic]').forEach(e => { e.classList.add('ic'); e.innerHTML = `<svg viewBox="0 0 24 24">${ICON[e.dataset.ic] || ''}</svg>`; });
@@ -1349,8 +1440,10 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
       <path d="M50 53v7" stroke="#d09a76" stroke-width="1.6" stroke-linecap="round" fill="none"/>${MOUTH(50, 66, '#9a3a44')}`
   };
   const PORTS = [PORT.me, PORT.mara, PORT.jonas, PORT.lena];
-  const avatar = p => `<svg class="avsvg" viewBox="0 0 100 100">${PORTS[p]()}</svg>`;
-  const bjAvatar = who => `<svg class="avsvg" viewBox="0 0 100 100">${(who === 'dealer' ? PORT.dealer : PORT.me)()}</svg>`;
+  let myPic = '';
+  const picImg = () => `<img class="avsvg" alt="" src="${myPic}" style="object-fit:cover">`;
+  const avatar = p => (p === 0 && myPic) ? picImg() : `<svg class="avsvg" viewBox="0 0 100 100">${PORTS[p]()}</svg>`;
+  const bjAvatar = who => (who !== 'dealer' && myPic) ? picImg() : `<svg class="avsvg" viewBox="0 0 100 100">${(who === 'dealer' ? PORT.dealer : PORT.me)()}</svg>`;
   { const da = $('dAv'), pa = $('pAv'); if (da) da.innerHTML = bjAvatar('dealer'); if (pa) pa.innerHTML = bjAvatar('me'); }
 
   // ---- Zufalls-Phasen: kleine, normale und große Kerzen ----
@@ -1576,8 +1669,8 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
 
   // ---- Hintergrundmusik: pro Spiel eine eigene, endlos variierende Komposition ----
   const Music = (() => {
-    let sg = null, timer = null, cur = null, nextT = 0, bar = 0, S = {}, nbuf = null;
-    const GM = { rug:1.8, bj:1.8, coin:2.3, spin:1.8, door:2.1, uno:1.7 };
+    let sg = null, timer = null, cur = null, nextT = 0, bar = 0, S = {}, nbuf = null, ducked = false;
+    const GM = { rug:1.9, bj:1.7, coin:2.2, spin:1.7, door:2.1, uno:1.8 };
     const CH = { m9:[0, 3, 7, 10, 14], M7:[0, 4, 7, 11], D7:[0, 4, 7, 10], m7:[0, 3, 7, 10], M9:[0, 4, 7, 11, 14], D13:[0, 4, 10, 14, 21], s4:[0, 5, 7, 10], m:[0, 3, 7], M:[0, 4, 7], M6:[0, 4, 7, 9], D9:[0, 4, 7, 10, 14] };
     const F = n => 440 * Math.pow(2, (n - 69) / 12), R = a => a[Math.floor(Math.random() * a.length)], P = p => Math.random() < p;
     const voice = (r, t) => CH[t].map(i => r + i);
@@ -1610,62 +1703,81 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
     const brush = (t, v) => hit(t, .16, v, 'bandpass', 3800, .6);
     const thudM = (t, v) => { const c = audio.ctx, o = c.createOscillator(), g = gn(c, t, .01, .3, v, .1); o.frequency.setValueAtTime(75, t); o.frequency.exponentialRampToValueAtTime(38, t + .3); o.connect(g); o.start(t); o.stop(t + .5); };
 
+    const piano = (t, f, dur, v) => { pluck(t, f, dur, v, 'triangle', 3800); pluck(t, f * 2, dur * .55, v * .28, 'sine', 5200); };
+    const vibes = (t, f, v, dur = 1.7) => [[1, 1], [4, .16], [10, .05]].forEach(([m, a], i) => {
+      const c = audio.ctx, o = c.createOscillator(), g = gn(c, t, .006, dur / (1 + i * .8), v * a, .12); o.type = 'sine'; o.frequency.value = f * m; o.connect(g); o.start(t); o.stop(t + dur + .3);
+    });
+    const horn = (t, f, dur, v, cut = 1400) => {
+      const c = audio.ctx, o = c.createOscillator(), lp = c.createBiquadFilter(), g = gn(c, t, .07, dur, v, .18), lf = c.createOscillator(), lg = c.createGain();
+      o.type = 'sawtooth'; o.frequency.value = f; lp.type = 'lowpass'; lp.frequency.setValueAtTime(cut * .5, t); lp.frequency.linearRampToValueAtTime(cut, t + .12); lp.Q.value = 1.2;
+      lf.frequency.value = 5; lg.gain.value = f * .007; lf.connect(lg); lg.connect(o.frequency); o.connect(lp); lp.connect(g); o.start(t); lf.start(t); o.stop(t + dur + .4); lf.stop(t + dur + .4);
+    };
+    const ride = (t, v) => hit(t, .32, v, 'bandpass', 7200, .6);
     const SC = {
-      rug: { bpm:92, bar(t, spb, b, s) {   // lockerer Lo-Fi-Beat, trading-floor
-        const prog = s.prog = (b % 4 === 0) ? R([[[57, 'm9'], [53, 'M7'], [60, 'M7'], [55, 'M6']], [[62, 'm9'], [55, 'D7'], [60, 'M9'], [57, 'm7']], [[57, 'm7'], [64, 'D7'], [53, 'M7'], [55, 'D7']]]) : s.prog;
-        const [r, ty] = prog[b % 4], v = voice(r, ty);
-        v.forEach(n => pad(t, F(n), spb * 4, .011, 760, 'triangle'));
-        bassM(t, F(r - 24), spb * 1.4, .16); bassM(t + spb * 2, F(r - 24 + (P(.5) ? 7 : 0)), spb * 1.2, .13); if (P(.4)) bassM(t + spb * 3.5, F(r - 12), spb * .5, .1);
-        kick(t, .13); if (P(.7)) kick(t + spb * 2, .1); snare(t + spb, .022); snare(t + spb * 3, .026);
-        for (let i = 0; i < 8; i++) if (P(.75)) hat(t + i * spb / 2 + (i % 2 ? spb * .03 : 0), i % 2 ? .016 : .009);
-        const sc = [0, 3, 5, 7, 10, 12, 15];
-        for (let i = 0; i < 8; i++) if (P(.34)) { const n = 57 + R(sc) + (P(.3) ? 12 : 0); pluck(t + i * spb / 2, F(n), .5, .05, 'triangle', 2600); }
-      } },
-      bj: { bpm:88, bar(t, spb, b, s) {   // Lounge-Jazz mit Swing
-        const A = [[[62, 'm9'], [55, 'D13'], [60, 'M9'], [57, 'D9']], [[64, 'm7'], [57, 'D7'], [62, 'm9'], [55, 'D13']], [[60, 'M9'], [69, 'm7'], [62, 'm9'], [55, 'D13']]];
-        s.prog = (b % 4 === 0) ? R(A) : s.prog; const prog = s.prog, [r, ty] = prog[b % 4], nx = prog[(b + 1) % 4][0], v = voice(r, ty);
-        const walk = [r - 24, r - 24 + R([4, 3, 7]), r - 24 + R([7, 9, 10]), nx - 24 + R([1, -1])];
-        walk.forEach((n, i) => bassM(t + i * spb, F(n < 36 ? n + 12 : n), spb * .9, .15, 'triangle'));
-        for (let i = 0; i < 4; i++) { brush(t + i * spb, i % 2 ? .02 : .012); if (P(.8)) hat(t + (i + .667) * spb, .011); }
-        brush(t + spb, .028); brush(t + spb * 3, .028); if (P(.5)) kick(t, .05);
-        [1.67, 3.67].forEach(x => { if (P(.65)) v.slice(0, 4).forEach(n => pluck(t + x * spb, F(n + 12), .9, .026, 'sine', 2400)); });
-        const sc = [0, 2, 3, 5, 7, 9, 10, 12, 14];
-        for (let i = 0; i < 4; i++) if (P(.38)) bellM(t + (i + (P(.5) ? .667 : 0)) * spb, F(r + 12 + R(sc)), .03, 1.2);
-      } },
-      coin: { bpm:66, bar(t, spb, b, s) {   // mystisch, langsam, D dorisch
-        const prog = [[50, 'm9'], [46, 'M7'], [55, 'm7'], [57, 's4']];
-        if (b % 2 === 0) { const [r, ty] = prog[(b / 2) % 4]; s.cur = [r, ty]; voice(r, ty).forEach(n => pad(t, F(n), spb * 8, .012, 620)); pad(t, F(r - 24), spb * 8, .03, 260, 'sine'); thudM(t, .11); }
-        const sc = [0, 2, 3, 5, 7, 9, 10], r = s.cur[0];
-        for (let i = 0; i < 4; i++) if (P(.36)) bellM(t + i * spb + (P(.4) ? spb / 2 : 0), F(r + 24 + R(sc)), .035, 3);
-        if (P(.3)) for (let i = 0; i < 6; i++) pluck(t + i * spb * .5, F(r + 12 + [0, 7, 12, 14, 12, 7][i]), .6, .026, 'sine', 3000);
-        if (b % 2 === 1 && P(.5)) thudM(t + spb * 2, .07);
-      } },
-      spin: { bpm:108, bar(t, spb, b, s) {   // Synthwave, gedämpft
-        const prog = (b % 8 < 4) ? [[57, 'm'], [53, 'M'], [60, 'M'], [55, 'M']] : [[57, 'm'], [55, 'M'], [53, 'M'], [64, 'M']];
-        const [r, ty] = prog[b % 4], v = voice(r, ty);
-        v.forEach(n => pad(t, F(n), spb * 4, .008, 900));
-        for (let i = 0; i < 8; i++) bassM(t + i * spb / 2, F(r - 24 + (i % 4 === 3 ? 12 : 0)), spb * .4, .075, 'sawtooth');
-        for (let i = 0; i < 4; i++) kick(t + i * spb, .1);
-        clap(t + spb, .05); clap(t + spb * 3, .05); for (let i = 0; i < 8; i++) hat(t + i * spb / 2 + spb / 4 * (i % 2), .016);
-        const pat = P(.5) ? [0, 1, 2, 1] : [0, 2, 1, 2];
-        for (let i = 0; i < 16; i++) { if (i % 4 === 3 && P(.4)) continue; pluck(t + i * spb / 4, F(v[pat[i % 4] % v.length] + 12 + (i % 8 > 3 ? 12 : 0)), .22, .026, 'sawtooth', 2200); }
-      } },
-      door: { bpm:54, bar(t, spb, b, s) {   // dunkles Ambient im Verlies
-        if (b % 4 === 0) { s.r = R([36, 37, 34]); pad(t, F(s.r), spb * 16, .03, 240, 'sawtooth'); pad(t, F(s.r + 7), spb * 16, .016, 300, 'sine'); [0, 3, 8].forEach(i => pad(t, F(s.r + 24 + i), spb * 16, .007, 520, 'triangle')); }
-        if (b % 2 === 0) { thudM(t, .1); thudM(t + spb * .6, .07); }
-        if (P(.5)) bellM(t + R([0, 1, 2, 3]) * spb, F(s.r + 36 + R([0, 1, 3, 7, 8, 12])), .03, 4);
-        if (P(.22)) hit(t + spb, spb * 3, .016, 'bandpass', R([400, 700, 1100]), 4);
-        if (P(.18)) pad(t + spb, F(s.r + 12 + R([0, 7])), spb * 3, .012, 340, 'sawtooth');
-      } },
-      uno: { bpm:112, bar(t, spb, b, s) {   // verspielt, freundlich
-        const A = [[[60, 'M'], [55, 'M'], [57, 'm'], [53, 'M']], [[60, 'M'], [57, 'm'], [53, 'M'], [55, 'M']]];
+      rug: { bpm:104, bar(t, spb, b, s) {   // Casino-Lobby: Bossa-Lounge
+        const A = [[[62, 'm9'], [55, 'D13'], [60, 'M9'], [57, 'D9']], [[64, 'm7'], [57, 'D9'], [62, 'm9'], [55, 'D13']]];
         s.prog = (b % 4 === 0) ? R(A) : s.prog; const [r, ty] = s.prog[b % 4], v = voice(r, ty);
-        [0, 1.5, 2, 3.5].forEach((x, i) => bassM(t + x * spb, F(r - 24 + (i % 2 ? 7 : 0)), spb * .5, .1, 'triangle'));
-        [.5, 1.5, 2.5, 3.5].forEach(x => v.forEach(n => pluck(t + x * spb, F(n), .22, .014, 'triangle', 2600)));
-        kick(t, .08); kick(t + spb * 2, .07); clap(t + spb, .028); clap(t + spb * 3, .03);
+        [0, 1.5, 2, 3.5].forEach((x, i) => bassM(t + x * spb, F(r - 24 + (i % 2 ? 7 : 0)), spb * .6, .15, 'triangle'));
+        [0, 1.5, 3, 3.5].forEach(x => hit(t + x * spb, .04, .03, 'bandpass', 2400, 3));
+        for (let i = 0; i < 8; i++) hat(t + i * spb / 2, i % 2 ? .014 : .009);
+        [.5, 1.5, 2.5, 3.5].forEach(x => { if (P(.8)) v.slice(0, 4).forEach(n => piano(t + x * spb, F(n + 12), .5, .018)); });
+        const sc = [0, 2, 3, 5, 7, 9, 10, 12, 14];
+        for (let i = 0; i < 8; i++) if (P(.36)) vibes(t + i * spb / 2, F(r + 12 + R(sc)), .045, 1.4);
+        if (b % 4 === 0) pad(t, F(r), spb * 16, .008, 700, 'triangle');
+      } },
+      bj: { bpm:116, bar(t, spb, b, s) {   // Vegas-Swing der Rat-Pack-Ära
+        const A = [[[62, 'm9'], [55, 'D13'], [60, 'M9'], [57, 'D9']], [[60, 'M9'], [69, 'm7'], [62, 'm9'], [55, 'D13']], [[64, 'm7'], [57, 'D7'], [62, 'm9'], [55, 'D13']]];
+        s.prog = (b % 4 === 0) ? R(A) : s.prog; const prog = s.prog, [r, ty] = prog[b % 4], nx = prog[(b + 1) % 4][0], v = voice(r, ty);
+        [r - 24, r - 24 + R([4, 3, 7]), r - 24 + R([7, 9, 10]), nx - 24 + R([1, -1])].forEach((n, i) => bassM(t + i * spb, F(n < 36 ? n + 12 : n), spb * .92, .16, 'triangle'));
+        [0, 1, 1.667, 2, 3, 3.667].forEach(x => ride(t + x * spb, .014)); [1, 3].forEach(x => hat(t + x * spb, .02));
+        [0, 1.667, 3.667].forEach(x => { if (P(.7)) v.slice(0, 4).forEach(n => piano(t + x * spb, F(n + 12), .45, .02)); });
+        if (b % 4 === 0 && P(.7)) v.slice(0, 3).forEach(n => horn(t + spb * 1.667, F(n + 12), spb * .5, .014));
+        const sc = [0, 2, 3, 5, 7, 9, 10, 12];
+        for (let i = 0; i < 4; i++) if (P(.45)) vibes(t + (i + (P(.5) ? .667 : 0)) * spb, F(r + 12 + R(sc)), .045, 1.2);
+        if (P(.5)) kick(t, .05);
+      } },
+      coin: { bpm:72, bar(t, spb, b, s) {   // Casino-Noir-Ballade
+        const prog = [[50, 'm9'], [55, 'D13'], [48, 'M9'], [57, 'D9']], [r, ty] = prog[b % 4], v = voice(r, ty);
+        bassM(t, F(r - 24), spb * 1.8, .15, 'triangle'); bassM(t + spb * 2, F(r - 24 + 7), spb * 1.8, .12, 'triangle');
+        for (let i = 0; i < 4; i++) brush(t + i * spb, i % 2 ? .016 : .01);
+        v.forEach(n => pad(t, F(n + 12), spb * 4, .007, 650, 'triangle'));
+        [0, 2.5].forEach(x => { if (P(.7)) v.slice(0, 4).forEach((n, i) => piano(t + (x + i * .08) * spb, F(n + 12), 1.1, .017)); });
+        const sc = [0, 2, 3, 5, 7, 9, 10];
+        for (let i = 0; i < 4; i++) if (P(.4)) vibes(t + i * spb, F(r + 24 + R(sc)), .04, 2.4);
+        if (b % 4 === 1 && P(.6)) horn(t + spb, F(r + 12 + R([0, 3, 7])), spb * 2.5, .016, 1100);
+      } },
+      spin: { bpm:122, bar(t, spb, b, s) {   // Spielautomaten-Floor: Disco-Swing mit Glöckchen
+        const prog = (b % 8 < 4) ? [[57, 'm7'], [53, 'M7'], [60, 'M7'], [55, 'D7']] : [[57, 'm7'], [55, 'D7'], [53, 'M7'], [64, 'D7']];
+        const [r, ty] = prog[b % 4], v = voice(r, ty);
+        for (let i = 0; i < 8; i++) bassM(t + i * spb / 2, F(r - 24 + (i % 4 === 3 ? 12 : i % 2 ? 7 : 0)), spb * .4, .1, 'triangle');
+        for (let i = 0; i < 4; i++) kick(t + i * spb, .09);
+        clap(t + spb, .04); clap(t + spb * 3, .04); for (let i = 0; i < 4; i++) hit(t + (i + .5) * spb, .08, .018, 'highpass', 7000);
+        [.5, 1.5, 2.5, 3.5].forEach(x => v.slice(0, 3).forEach(n => piano(t + x * spb, F(n + 12), .22, .016)));
+        for (let i = 0; i < 8; i++) if (P(.6)) bellM(t + i * spb / 2, F(v[i % v.length] + 24), .02, .7);
+        if (P(.3)) for (let i = 0; i < 5; i++) bellM(t + spb * 3 + i * .06, F(84 + R([0, 4, 7, 12])), .016, .5);
+        if (b % 4 === 0) horn(t, F(r + 12), spb * .8, .013, 1800);
+      } },
+      door: { bpm:84, bar(t, spb, b, s) {   // Hochspannung im Hinterzimmer: Noir-Jazz
+        const prog = [[57, 'm7'], [53, 'M7'], [52, 'D7'], [57, 'm7']], [r, ty] = prog[b % 4], v = voice(r, ty);
+        [r - 24, r - 24 + 3, r - 24 + 7, r - 24 + 10].forEach((n, i) => bassM(t + i * spb, F(n < 36 ? n + 12 : n), spb * .9, .15, 'triangle'));
+        for (let i = 0; i < 4; i++) { brush(t + i * spb, .014); if (i % 2) brush(t + (i + .667) * spb, .01); }
+        thudM(t, .07);
+        if (P(.55)) v.slice(0, 3).forEach((n, i) => piano(t + (2.5 + i * .05) * spb, F(n + 12), .9, .016));
+        const sc = [0, 1, 3, 5, 7, 8, 10];
+        if (P(.45)) vibes(t + R([0, 1, 2, 3]) * spb, F(r + 24 + R(sc)), .035, 2.6);
+        if (b % 4 === 2 && P(.7)) horn(t, F(r + 12 + R([0, 3, 7, 10])), spb * 3, .018, 900);
+        if (P(.12)) hit(t + spb, spb * 2, .01, 'bandpass', 900, 5);
+      } },
+      uno: { bpm:124, bar(t, spb, b, s) {   // Piano-Bar: fröhlicher Stride
+        const A = [[[60, 'M'], [55, 'M'], [57, 'm'], [53, 'M']], [[60, 'M'], [57, 'm'], [53, 'M'], [55, 'D7']]];
+        s.prog = (b % 4 === 0) ? R(A) : s.prog; const [r, ty] = s.prog[b % 4], v = voice(r, ty);
+        bassM(t, F(r - 24), spb * .8, .14, 'triangle'); bassM(t + spb * 2, F(r - 24 + 7), spb * .8, .12, 'triangle');
+        [1, 3].forEach(x => v.forEach(n => piano(t + x * spb, F(n), .3, .02)));
+        hit(t + spb, .05, .025, 'bandpass', 2600, 3); hit(t + spb * 3, .05, .025, 'bandpass', 2600, 3);
         for (let i = 0; i < 8; i++) hat(t + i * spb / 2, .01 + (i % 2) * .005);
         const sc = [0, 2, 4, 7, 9, 12, 14, 16];
-        for (let i = 0; i < 8; i++) if (P(.55)) pluck(t + i * spb / 2, F(60 + R(sc)), .3, .042, 'sine', 3800);
+        for (let i = 0; i < 8; i++) if (P(.62)) piano(t + i * spb / 2, F(60 + R(sc)), .3, .034);
+        if (P(.25)) vibes(t + spb * 2, F(72 + R([0, 4, 7])), .035, 1.5);
       } }
     };
     const loop = () => {
@@ -1679,11 +1791,12 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
     const play = name => {
       if (!SC[name] || cur === name) return;
       const c = audio.on && ac(); if (!c) return; stop();
-      sg = c.createGain(); sg.gain.setValueAtTime(0, c.currentTime); sg.gain.linearRampToValueAtTime(GM[name] || 1.6, c.currentTime + 2.5); sg.connect(bus(c));
+      sg = c.createGain(); sg.gain.setValueAtTime(0, c.currentTime); if (!ducked) sg.gain.linearRampToValueAtTime(GM[name] || 1.6, c.currentTime + 2.5); sg.connect(bus(c));
       cur = name; bar = 0; S = {}; nextT = c.currentTime + .2; loop(); timer = setInterval(loop, 250);
     };
     const gameNow = () => { const g = [...document.querySelectorAll('.deck>div[id^=g-]')].find(d => !d.hidden); return g ? g.id.slice(2) : 'rug'; };
-    return { play, stop, sync:() => { if (audio.on && audio.ctx && !cur) play(gameNow()); }, now:gameNow };
+    const duck = on => { ducked = on; if (!sg) return; const c = audio.ctx; try { sg.gain.cancelScheduledValues(c.currentTime); sg.gain.setValueAtTime(sg.gain.value, c.currentTime); sg.gain.linearRampToValueAtTime(on ? 0 : (GM[cur] || 1.6), c.currentTime + (on ? .7 : 2.2)); } catch (e) {} };
+    return { duck, isDucked:() => ducked, play, stop, sync:() => { if (audio.on && audio.ctx && !cur) play(gameNow()); }, now:gameNow };
   })();
   document.addEventListener('visibilitychange', () => { const c = audio.ctx; if (!c) return; if (document.hidden) c.suspend(); else if (audio.on) c.resume(); });
 
@@ -2835,7 +2948,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
   // Die übrigen Plätze entscheiden die Punkte auf der Hand: Zahlen = Wert, Aussetzen 3, +2 und Richtungswechsel je 2, Joker und +4 je 10.
   // Die KIs sehen nur ihre eigene Hand, die öffentliche Ablage und die Handgrößen. Sie zählen Karten, merken sich fehlende Farben und planen per Monte-Carlo.
   const Uno = (() => {
-    const COLS = ['R', 'Y', 'G', 'B'], MULT = [2, .5, .1, 0], HAND = 7;
+    const COLS = ['R', 'Y', 'G', 'B'], MULT = [2.2, 1.2, .3, 0], HAND = 7;
     let S = null, EV = [], nid = 0;
     const rnd = () => { const a = new Uint32Array(1); crypto.getRandomValues(a); return a[0] / 4294967296; };
     const rint = n => Math.floor(rnd() * n);
@@ -2859,7 +2972,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
     const handPts = h => h.reduce((a, c) => a + pts(c), 0);
     // streng erlaubt: Farbe, Zahl/Symbol oder Joker. +4 nur, wenn keine Karte der aktuellen Farbe auf der Hand ist
     // Stapeln: auf +2 darf man in jeder Farbe mit +2 antworten, auf Aussetzen mit Aussetzen. Auf +4 geht nur ein +2 in der gewünschten Farbe (nie Schwarz auf Schwarz).
-    const pendLegal = c => S.pend.kind === 'S' ? c.v === 'S' : ((c.v === 'D' && (top().v === 'F' ? c.c === S.color : true)) || (c.v === 'F' && top().v === 'D'));
+    const pendLegal = c => c.v === 'F' || (c.v === 'D' && top().v === 'D');
     const strictLegal = (p, c) => S.pend ? pendLegal(c) : (c.v === 'F' ? !S.hands[p].some(x => x.c === S.color) : (c.c === 'W' || c.c === S.color || (top().c !== 'W' && c.v === top().v)));
     const hasResponse = p => S.hands[p].some(pendLegal);
     // Strafe annehmen: +n Karten ziehen und aussetzen, bzw. n Spieler werden übersprungen
@@ -2930,7 +3043,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
     function effects(p, c, hadColor, prevColor) {
       S.phase = 'play';
       switch (c.v) {
-        case 'S': { const q = nxt(p); S.pend = { kind:'S', n:(S.pend && S.pend.kind === 'S' ? S.pend.n : 0) + 1 }; S.turn = q; EV.push({ t:'stack', kind:'S', n:S.pend.n, from:p, to:q }); settle(); break; }
+        case 'S': { const q = nxt(p); EV.push({ t:'skip', p:q }); S.turn = nxt(q); break; }
         case 'V': S.dir = -S.dir; EV.push({ t:'reverse', dir:S.dir }); S.turn = nxt(p); break;
         case 'D': { const q = nxt(p), base = S.pend && S.pend.kind === 'D' ? S.pend.n : 0; S.pend = { kind:'D', n:base + 2, src:base ? S.pend.src : 'D' }; S.turn = q; EV.push({ t:'stack', kind:'D', n:S.pend.n, from:p, to:q }); settle(); break; }
         case 'F': if (S.pend && S.pend.kind === 'D') { const q = nxt(p); S.pend = { kind:'D', n:S.pend.n + 4, src:'F' }; S.turn = q; EV.push({ t:'stack', kind:'F', n:S.pend.n, from:p, to:q }); settle(); break; } S.phase = 'challenge'; S.chal = { by:p, victim:nxt(p), hadColor, prev:prevColor }; EV.push({ t:'w4', by:p, victim:S.chal.victim, color:S.color }); break;
@@ -3088,7 +3201,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
       S.discard.push(c); S.color = c.c === 'W' ? COLS[rint(4)] : c.c;
       const f = rint(4); S.turn = f;   // Startspieler wird ausgelost
       EV.push({ t:'deal', hand:S.hands[0].slice(), top:c, color:S.color, first:f, per:HAND });
-      if (c.v === 'S') { S.pend = { kind:'S', n:1 }; S.turn = f; EV.push({ t:'stack', kind:'S', n:1, from:-1, to:f }); settle(); }
+      if (c.v === 'S') { EV.push({ t:'skip', p:f }); S.turn = nxt(f); }
       else if (c.v === 'V') { S.dir = -1; EV.push({ t:'reverse', dir:-1 }); S.turn = mod(f - 1, 4); }
       else if (c.v === 'D') { S.pend = { kind:'D', n:2, src:'D' }; S.turn = f; EV.push({ t:'stack', kind:'D', n:2, from:-1, to:f }); settle(); }
       return true;
@@ -3193,8 +3306,9 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
   const renderDir = () => un.dir.classList.toggle('ccw', U.V.dir < 0);
   const seatRect = p => p === 0 ? bbox(un.hand) : bbox(fanEls[p]);
   // 3D-Flug einer Karte: optional dreht sie sich dabei von der Rück- auf die Vorderseite
+  const usleep = ms => sleep(U.fast ? ms * .35 : ms);
   function flight(card, from, to, ms, wFrom, wTo, flip = false, glow = '') {
-    if (redMotion()) ms = 1;
+    if (redMotion()) ms = 1; else if (U.fast) ms *= .45;
     const base = Math.max(wFrom, wTo), h = base * 1.5, e = document.createElement('div'), inner = document.createElement('div');
     e.className = 'fly'; e.style.setProperty('--cw', base + 'px'); e.style.width = base + 'px'; e.style.height = h + 'px';
     if (glow) e.style.filter = `drop-shadow(0 0 14px ${glow})`;
@@ -3246,7 +3360,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
     U.V = { hand:[], sizes:[0, 0, 0, 0], top:null, color:e.color, dir:1, pile:[] };
     renderHand(); for (let p = 1; p <= 3; p++) renderSeat(p); renderTop(); renderDir(); renderPend(null);
     unLog(`Neue Runde. ${e.first === 0 ? 'Du beginnst' : NM[e.first] + ' beginnt'}.`);
-    sfx.unShuffle(); un.draw.classList.add('shuffling'); await sleep(redMotion() ? 0 : 750); un.draw.classList.remove('shuffling');
+    sfx.unShuffle(); un.draw.classList.add('shuffling'); await usleep(redMotion() ? 0 : 750); un.draw.classList.remove('shuffling');
     const per = e.per || 7, wDraw = cssNum('--pcw', 44), wH = cssNum('--hcw', 60), wS = cssNum('--scw', 22), jobs = [];
     for (let i = 0; i < per * 4; i++) {
       const p = i % 4;
@@ -3254,9 +3368,9 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
         U.V.sizes[p]++; sfx.unDeal();
         if (p === 0) { U.V.hand.push(e.hand[Math.floor(i / 4)]); renderHand(); } else renderSeat(p);
       }));
-      await sleep(redMotion() ? 0 : 55);
+      await usleep(redMotion() ? 0 : 55);
     }
-    await Promise.all(jobs); await sleep(redMotion() ? 0 : 250);
+    await Promise.all(jobs); await usleep(redMotion() ? 0 : 250);
     await flight(e.top, bbox(un.draw), bbox(un.stack), 520, wDraw, wDraw, true); sfx.unPlay();
     U.V.pile.push({ card:e.top, dx:0, dy:0, rot:(Math.random() - .5) * 16 }); U.V.top = e.top; U.V.color = e.color; renderTop();
     unLog(`Startkarte: ${cardName(e.top)}${e.top.c === 'W' ? ', Farbe ' + CNAME[e.color] : ''}`);
@@ -3268,7 +3382,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
     sfx.unPlay();
     const act = ['S', 'V', 'D', 'F'].includes(e.card.v);
     await flight(e.card, from, bbox(un.stack), 460, e.p === 0 ? wH : wS * 1.6, wP, e.p !== 0, act ? (e.card.c === 'W' ? '#fff' : CHEX[e.card.c]) : '');
-    U.V.pile.push({ card:e.card, dx:(Math.random() - .5) * 8, dy:(Math.random() - .5) * 6, rot:(Math.random() - .5) * 30 });
+    U.V.pile.push({ card:e.card, dx:(Math.random() - .5) * 14, dy:(Math.random() - .5) * 10, rot:(Math.random() - .5) * 44 });
     U.V.top = e.card; U.V.color = e.color; renderTop();
     unLog(`${NM[e.p]} spielt ${cardName(e.card)}${e.card.c === 'W' ? ' → ' + CNAME[e.color] : ''}`);
     const c = relU(un.stack), col = e.card.c === 'W' ? '#ffffff' : CHEX[e.card.c], all = ['#e53935', '#f9c80e', '#2e9e4a', '#1e7fe0'];
@@ -3283,24 +3397,24 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
       default: unfx.emit(14, c.x, c.y, { speed:5, life:30, g:.06, cols:[col, '#fff'] });
     }
     if (e.card.v === 'W') await cine('color', { col:CHEX[e.color], name:CNAME[e.color].toUpperCase(), by:NM[e.p] }, 1300);
-    else await sleep(redMotion() ? 0 : 200);
+    else await usleep(redMotion() ? 0 : 200);
   }
   async function unDrawEv(e) {
     const wH = cssNum('--hcw', 60), wS = cssNum('--scw', 22), wP = cssNum('--pcw', 44);
     if (e.n > 0) {
       const to = seatRect(e.p);
-      for (let i = 0; i < e.n; i++) { sfx.unDraw(); const pr = flight(null, bbox(un.draw), to, 380, wP, e.p === 0 ? wH : wS); if (i === e.n - 1) await pr; else await sleep(redMotion() ? 0 : 110); }
+      for (let i = 0; i < e.n; i++) { sfx.unDraw(); const pr = flight(null, bbox(un.draw), to, 380, wP, e.p === 0 ? wH : wS); if (i === e.n - 1) await pr; else await usleep(redMotion() ? 0 : 110); }
     }
     U.V.sizes[e.p] = e.size; if (e.p === 0) { e.cards.forEach(c => U.fresh.add(c.id)); U.V.hand.push(...e.cards); renderHand(); } else renderSeat(e.p);
     const why = { turn:'zieht eine Karte', D:`muss ${e.n} Karten ziehen`, F:`muss ${e.n} Karten ziehen`, uno:'zieht 2 Karten (UNO vergessen)', caught:'wurde erwischt und zieht 2 Karten', start:'muss 2 Karten ziehen' }[e.why] || 'zieht';
     unLog(`${NM[e.p]} ${why}`);
     if (e.why === 'D' || e.why === 'F' || e.why === 'caught') { const c = relU(e.p === 0 ? un.hand : seatEls[e.p]); unfx.emit(30, c.x, c.y, { speed:6, life:36, g:.08, cols:['#ff5a5a', '#fff'] }); setMood(e.p, e.why === 'F' ? 'shock' : 'sad'); chatter(.7, [e.p, ['Autsch!', 'Oh nein!', 'Das tut weh.']]); }
     else if (e.why === 'turn') { setMood(e.p, 'sad', 900); chatter(.35, [e.p, ['Hmpf…', 'Mist.', 'Nichts da.']]); }
-    await sleep(redMotion() ? 0 : 120);
+    await usleep(redMotion() ? 0 : 120);
   }
   async function unSkipEv(e) {
     const host = e.p === 0 ? un.meWrap : seatEls[e.p].querySelector('.avwrap'), st = document.createElement('div'); st.className = 'stamp2'; st.textContent = '⊘'; host.appendChild(st);
-    sfx.unSkip(); setMood(e.p, 'shock'); unLog(`${NM[e.p]} wird übersprungen`); await sleep(redMotion() ? 0 : 550); st.remove();
+    sfx.unSkip(); setMood(e.p, 'shock'); unLog(`${NM[e.p]} wird übersprungen`); await usleep(redMotion() ? 0 : 550); st.remove();
   }
   async function unEvents(evs) {
     for (const e of evs) {
@@ -3322,7 +3436,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
                    await cine('color', { col:CHEX[e.color], name:CNAME[e.color].toUpperCase(), by:NM[e.by] }, 1300); break;
         case 'challenge': unLog(`${NM[e.by]} ficht ${NM[e.target]} an: ${e.success ? NM[e.target] + ' hatte die Farbe noch, Bluff erwischt!' : 'zu Unrecht angefochten'}`);
                           setMood(e.target, e.success ? 'sad' : 'happy'); setMood(e.by, e.success ? 'happy' : 'sad');
-                          if (e.success) { sfx.unAlarm(); unFlash('#ffd75e', .5); } await sleep(redMotion() ? 0 : 500); break;
+                          if (e.success) { sfx.unAlarm(); unFlash('#ffd75e', .5); } await usleep(redMotion() ? 0 : 500); break;
         case 'reshuffle': unLog('Ablagestapel wird neu gemischt.'); sfx.unShuffle(); break;
         case 'armed': unLog('UNO vorgemerkt'); break;
         case 'penalty': unLog('UNO vergessen! Strafe: 2 Karten'); sfx.lose(); setMood(0, 'sad'); saySeat(0, 'Mist, UNO vergessen!'); break;
@@ -3342,7 +3456,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
   function unTick() {
     if (U.ui !== 'playing') return;
     const now = performance.now(), left = Math.max(0, U.roundEnd - now), t = Math.ceil(left / 1000), txt = `${String(Math.floor(t / 60)).padStart(2, '0')}:${String(t % 60).padStart(2, '0')}`;
-    setT3(un.clock, txt); un.clock2.textContent = txt; un.clock.classList.toggle('low', left < 30000);
+    setT3(un.clock, txt); un.clock2.textContent = txt; un.clock.classList.toggle('low', left < 30000); U.fast = left < 30000;
     if (left <= 0 && !U.timeUp) { U.timeUp = true; unLog('Zeit abgelaufen! Wer die wenigsten Punkte hat, gewinnt.'); sfx.unAlarm(); Uno.endByTime(); unPump(); return; }
     if (U.turnEnd) {
       const rem = U.turnEnd - now, sec = Math.max(0, Math.ceil(rem / 1000));
@@ -3366,7 +3480,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
     if (v.pend) {
       const n = v.pend.n, ch = v.color ? ADJ[v.color] : '';
       return v.pend.kind === 'S' ? `Aussetzen ×${n}: Aussetzen legen oder ziehen`
-        : (v.top && v.top.v === 'F' ? `+${n}: ${ch}es +2 legen oder ${n} ziehen` : `+${n}: +2 oder +4 legen oder ${n} ziehen`);
+        : (v.top && v.top.v === 'F' ? `+${n}: +4 legen oder ${n} ziehen` : `+${n}: +2 oder +4 legen oder ${n} ziehen`);
     }
     if (v.phase === 'drawn') return 'Spielen oder PASS';
     if (v.legal.ok.length) return 'Du bist dran';
@@ -3399,7 +3513,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
     startTurnTimer(TURN_MS, unAutoExpire);
   }
   // Denkzeit: die KIs überlegen sichtbar (Jonas am gründlichsten, Mara am schnellsten)
-  const thinkTime = p => (redMotion() ? 0 : [0, 1700, 2500, 2100][p] + Math.random() * 1500 + (U.V.sizes[p] > 8 ? 500 : 0));
+  const thinkTime = p => (redMotion() ? 0 : ([0, 1700, 2500, 2100][p] + Math.random() * 1500 + (U.V.sizes[p] > 8 ? 500 : 0)) * (U.fast ? .3 : 1));
 
   async function unPump() {
     if (U.pumping) return; U.pumping = true; U.waitHuman = false; U.dinged = false; clearTimeout(U.timer); unLockUI();
@@ -3419,7 +3533,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
         const who = v.phase === 'challenge' ? v.chal.victim : v.turn;
         un.status.textContent = `${NM[who]} überlegt …`; setThink(who, true);
         const t0 = performance.now(), ms = thinkTime(who); let tick = 0;
-        while (performance.now() - t0 < ms) { await sleep(Math.min(260, ms)); if (++tick % 2 === 0) sfx.unThink(); if (U.ui !== 'playing' || U.timeUp) break; }
+        while (performance.now() - t0 < ms) { await usleep(Math.min(260, ms)); if (++tick % 2 === 0) sfx.unThink(); if (U.ui !== 'playing' || U.timeUp) break; }
         setThink(who, false);
         Uno.aiAct();
       }
@@ -3455,7 +3569,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
       } else { sfx.lose(); unShake(); setMood(0, 'sad', 4000); }
     }
     unLog(title + ': ' + body);
-    await sleep(redMotion() ? 0 : 500);
+    await usleep(redMotion() ? 0 : 500);
     sfx.unPodium();
     un.pop.hidden = false; un.pop.innerHTML = `<div class="pbox big"><h3>${title}</h3>${w === -1 ? '' : podiumHTML(rank)}<p>${body}</p><button class="un-btn" data-x="1">OK</button></div>`;
     un.status.textContent = 'Runde beendet.'; U.ui = 'idle'; unPanel(); unRefresh();
@@ -3480,7 +3594,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
     if (v > balance) return sfx.error(), unSay('Einsatz höher als dein Guthaben.', 'lose');
     setBalance(balance - v); U.bet = v; U.ui = 'playing'; U.timeUp = false; un.log.innerHTML = ''; un.pop.hidden = true; unSay(''); unPanel(); unRefresh();
     [0, 1, 2, 3].forEach(p => setMood(p, 'n')); unfx.size(un.arena);
-    U.roundEnd = performance.now() + ROUND_MS; clearInterval(U.tick); U.tick = setInterval(unTick, 200); unTick();
+    U.fast = false; U.roundEnd = performance.now() + ROUND_MS; clearInterval(U.tick); U.tick = setInterval(unTick, 200); unTick();
     Uno.start(); unPump();
   }
 
@@ -3713,6 +3827,120 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
     if (b && !b.disabled && !b.closest('.sell, #all, #start')) sfx.click();
   });
   $('mute').addEventListener('click', e => { audio.on = !audio.on; e.currentTarget.innerHTML = ic(audio.on ? 'volume' : 'mute'); if (audio.on) Music.sync(); else Music.stop(); });
+  // ---- Anmeldung (Konto) ----
+  // Echte Dienste hier eintragen. Ohne Eintrag läuft die Anmeldung im Demo-Modus (nur lokal, kein Mailversand, kein Google).
+  const AUTH = { googleClientId:'', sendCodeUrl:'', verifyCodeUrl:'' };
+  const Auth = (() => {
+    const KEY = 'lhx_acct', GATED = new Set(['start', 'bjDeal', 'cfFlip', 'spSpin', 'drStart', 'unStart', 'dailyBtn', 'dailyOpen']);
+    let acct = null, pend = null, demoCode = '', tmpPic = null, cooldown = 0;
+    try { acct = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) {}
+    const store = () => { try { localStorage.setItem(KEY, JSON.stringify(acct)); } catch (e) {} };
+    const ok = () => !!(acct && acct.username);
+    const modal = $('authModal'), steps = [$('auStep1'), $('auStep2'), $('auStep3')];
+    const show = n => { steps.forEach((s, i) => { s.hidden = i !== n - 1; }); };
+    const say = (n, t, cls) => { const e = $('auMsg' + n); e.textContent = t || ''; e.className = 'aumsg ' + (cls || ''); };
+    const picHtml = url => url ? `<img alt="" src="${url}">` : ic('user');
+    function refresh() {
+      const name = ok() ? acct.username : '';
+      myPic = ok() && acct.pic ? acct.pic : '';
+      $('acctBtn').innerHTML = `<span class="acpic">${picHtml(myPic)}</span><span class="actxt">${name ? name.replace(/[<>&]/g, '') : 'Anmelden'}</span>`;
+      NM[0] = name || 'Du';
+      const w = document.querySelector('#pHand .who'); if (w && w.lastChild) w.lastChild.textContent = name || 'Du';
+      const me = document.querySelector('.mename b'); if (me) me.textContent = name || 'Du';
+      $('pAv').innerHTML = bjAvatar('me'); un.meAv.innerHTML = avatar(0);
+    }
+    function open() {
+      say(1, ''); say(2, ''); say(3, '');
+      $('auDemoNote').hidden = !!(AUTH.sendCodeUrl && AUTH.googleClientId);
+      if (ok()) { prepProfile(); $('auOut').hidden = false; show(3); } else { $('auOut').hidden = true; show(1); }
+      modal.hidden = false; setTimeout(() => { const f = ok() ? $('auName') : $('auEmail'); if (f) f.focus(); }, 60);
+    }
+    const close = () => { modal.hidden = true; };
+    function prepProfile() {
+      tmpPic = acct && acct.pic ? acct.pic : null; $('auName').value = (acct && acct.username) || (acct && acct.name ? acct.name.replace(/[^\p{L}\p{N}_\-]/gu, '').slice(0, 16) : '');
+      $('auPic').innerHTML = picHtml(tmpPic); $('auPicDel').hidden = !tmpPic;
+    }
+    async function sendCode() {
+      const email = $('auEmail').value.trim().toLowerCase();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { say(1, 'Bitte eine gültige E-Mail-Adresse eingeben.', 'err'); return; }
+      const btn = $('auSend'); btn.disabled = true; say(1, 'Wird gesendet …');
+      try {
+        if (AUTH.sendCodeUrl) { const r = await fetch(AUTH.sendCodeUrl, { method:'POST', headers:{ 'Content-Type':'application/json' }, body:JSON.stringify({ email }) }); if (!r.ok) throw new Error('send'); }
+        else demoCode = String(crypto.getRandomValues(new Uint32Array(1))[0] % 1000000).padStart(6, '0');
+        pend = { email, at:Date.now(), tries:0 }; $('auCode').value = ''; say(1, '');
+        $('auSub2').textContent = AUTH.sendCodeUrl ? `Wir haben einen 6-stelligen Code an ${email} geschickt.` : `Demo: Für ${email} wird kein echter Code verschickt.`;
+        const d = $('auDemo'); d.hidden = !!AUTH.sendCodeUrl; d.innerHTML = `Dein Demo-Code: <b>${demoCode}</b>`;
+        show(2); setTimeout(() => $('auCode').focus(), 60);
+      } catch (e) { say(1, 'Senden fehlgeschlagen. Bitte später erneut versuchen.', 'err'); }
+      setTimeout(() => { btn.disabled = false; }, 1500);
+    }
+    async function verify() {
+      const code = $('auCode').value.replace(/\D/g, '');
+      if (!pend) { show(1); return; }
+      if (code.length !== 6) { say(2, 'Bitte den 6-stelligen Code eingeben.', 'err'); return; }
+      if (Date.now() - pend.at > 10 * 60 * 1000) { say(2, 'Der Code ist abgelaufen. Bitte neu senden.', 'err'); return; }
+      if (++pend.tries > 5) { say(2, 'Zu viele Versuche. Bitte neuen Code senden.', 'err'); return; }
+      let good = false;
+      try {
+        if (AUTH.verifyCodeUrl) { const r = await fetch(AUTH.verifyCodeUrl, { method:'POST', headers:{ 'Content-Type':'application/json' }, body:JSON.stringify({ email:pend.email, code }) }); good = r.ok && (await r.json()).ok === true; }
+        else good = code === demoCode;
+      } catch (e) { say(2, 'Prüfung fehlgeschlagen. Bitte erneut versuchen.', 'err'); return; }
+      if (!good) { say(2, 'Falscher Code.', 'err'); return; }
+      const same = acct && acct.email === pend.email ? acct : {};
+      acct = { ...same, id:'e:' + pend.email, method:'email', email:pend.email }; pend = null; demoCode = ''; store(); finishLogin();
+    }
+    function finishLogin() { if (ok()) { refresh(); close(); return; } prepProfile(); $('auOut').hidden = true; show(3); }
+    function onGoogle(cred) {
+      try {
+        const p = JSON.parse(decodeURIComponent(escape(atob(cred.credential.split('.')[1].replace(/-/g, '+').replace(/_/g, '/')))));
+        const same = acct && acct.id === 'g:' + p.sub ? acct : {};
+        acct = { ...same, id:'g:' + p.sub, method:'google', email:p.email, name:p.name }; store(); finishLogin();
+      } catch (e) { say(1, 'Google-Anmeldung fehlgeschlagen.', 'err'); }
+    }
+    function setupGoogle() {
+      const btn = $('auGoogle');
+      if (!AUTH.googleClientId) { btn.onclick = () => say(1, 'Google-Anmeldung ist hier nicht verfügbar: Sie braucht eine eigene Google-Client-ID und eine eigene Web-Adresse.', 'err'); return; }
+      btn.onclick = () => {
+        const go = () => { google.accounts.id.initialize({ client_id:AUTH.googleClientId, callback:onGoogle }); $('auGBox').hidden = false; btn.hidden = true; google.accounts.id.renderButton($('auGBox'), { theme:'outline', size:'large', text:'signin_with', width:280 }); };
+        if (window.google && google.accounts) { go(); return; }
+        const s = document.createElement('script'); s.src = 'https://accounts.google.com/gsi/client'; s.onload = go; s.onerror = () => say(1, 'Google konnte nicht geladen werden.', 'err'); document.head.appendChild(s);
+      };
+    }
+    function shrink(file) {
+      return new Promise(res => {
+        const fr = new FileReader(); fr.onload = () => { const im = new Image(); im.onload = () => {
+          const S = 160, c = document.createElement('canvas'); c.width = c.height = S; const x = c.getContext('2d'), m = Math.min(im.width, im.height);
+          x.drawImage(im, (im.width - m) / 2, (im.height - m) / 2, m, m, 0, 0, S, S); res(c.toDataURL('image/jpeg', .85)); }; im.onerror = () => res(null); im.src = fr.result; };
+        fr.onerror = () => res(null); fr.readAsDataURL(file);
+      });
+    }
+    function saveProfile() {
+      const name = $('auName').value.trim();
+      if (!/^[\p{L}\p{N}_\-]{3,16}$/u.test(name)) { say(3, 'Benutzername: 3 bis 16 Zeichen, nur Buchstaben, Zahlen, _ und -.', 'err'); return; }
+      if (!acct) return;
+      acct.username = name; acct.pic = tmpPic || ''; store(); refresh(); close();
+    }
+    $('auSend').onclick = sendCode; $('auVerify').onclick = verify; $('auSave').onclick = saveProfile;
+    $('auEmail').addEventListener('keydown', e => { if (e.key === 'Enter') sendCode(); });
+    $('auCode').addEventListener('keydown', e => { if (e.key === 'Enter') verify(); });
+    $('auCode').addEventListener('input', e => { e.target.value = e.target.value.replace(/\D/g, '').slice(0, 6); if (e.target.value.length === 6) verify(); });
+    $('auName').addEventListener('keydown', e => { if (e.key === 'Enter') saveProfile(); });
+    $('auResend').onclick = () => { if (Date.now() < cooldown) { say(2, 'Bitte kurz warten.', 'err'); return; } cooldown = Date.now() + 20000; show(1); sendCode(); };
+    $('auBack').onclick = () => { say(2, ''); show(1); };
+    $('auPick').onclick = () => $('auFile').click();
+    $('auFile').onchange = async e => { const f = e.target.files[0]; if (!f) return; const d = await shrink(f); if (!d) { say(3, 'Das Bild konnte nicht gelesen werden.', 'err'); return; } tmpPic = d; $('auPic').innerHTML = picHtml(d); $('auPicDel').hidden = false; say(3, ''); };
+    $('auPicDel').onclick = () => { tmpPic = null; $('auPic').innerHTML = picHtml(null); $('auPicDel').hidden = true; $('auFile').value = ''; };
+    $('auOut').onclick = () => { acct = null; try { localStorage.removeItem(KEY); } catch (e) {} refresh(); show(1); $('auOut').hidden = true; };
+    $('authClose').onclick = close;
+    modal.addEventListener('click', e => { if (e.target === modal) close(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && !modal.hidden) close(); });
+    $('acctBtn').onclick = open;
+    // Sperre: ohne vollständiges Konto startet kein Spiel und keine Truhe
+    document.addEventListener('click', e => { const b = e.target.closest && e.target.closest('button'); if (b && GATED.has(b.id) && !ok()) { e.stopImmediatePropagation(); e.preventDefault(); open(); } }, true);
+    setupGoogle(); refresh();
+    return { ok, open };
+  })();
+
   function unLayout() {
     const a = un.arena, W = a.clientWidth, H = a.clientHeight; if (!W || !H) return;
     const hcw = Math.round(Math.max(40, Math.min(66, W * .15, H * .13)));
@@ -3725,6 +3953,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
   new ResizeObserver(() => window.dispatchEvent(new Event('resize'))).observe(document.querySelector('.deck'));
   document.querySelectorAll('.tabs button').forEach(b => b.addEventListener('click', () => { setTimeout(() => window.dispatchEvent(new Event('resize')), 40); Music.play(Music.now()); }));
   document.addEventListener('pointerdown', () => Music.sync());
+  setInterval(() => { const b = busy(); if (b !== Music.isDucked()) Music.duck(b); }, 400);
   $('infoBtn').addEventListener('click', () => { const g = [...document.querySelectorAll('.deck>div[id^=g-]')].find(d => !d.hidden); const i = g && g.querySelector('.info'); if (i) i.classList.toggle('open'); });
   document.querySelectorAll('.infoclose').forEach(b => b.addEventListener('click', () => b.closest('.info').classList.remove('open')));
   unLayout();
