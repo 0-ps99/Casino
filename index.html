@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>LHX — CRASH-RUG</title>
-<style>:root{--bg:#0e1013;--bg2:#13161a;--panel:#171a1f;--panel2:#1f2329;--panel3:#272c33;--line:#2a2f36;--line2:#3a414a;--text:#ebe7de;--muted:#98948b;--dim:#6d6a63;
+<style>:root{--bg:#11141a;--bg2:#161a21;--panel:#1a1e26;--panel2:#222731;--panel3:#2a303b;--line:#2c333d;--line2:#3d4651;--text:#ebe7de;--muted:#98948b;--dim:#6d6a63;
 --brass:#c9a24d;--brass2:#e6c883;--brassd:#7f6226;--g:#5aa876;--gl:#86c99f;--r:#d0584a;--felt:#1d5a3a;
 --ff-d:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;--ff-u:"Avenir Next","Segoe UI",system-ui,-apple-system,Roboto,sans-serif;color-scheme:dark}
 *{box-sizing:border-box;margin:0}
 html,body{height:100%;overflow:hidden;overscroll-behavior:none}
-body{background:radial-gradient(120% 70% at 50% -10%,#1c2026 0,#0e1013 62%);color:var(--text);font-family:var(--ff-u);font-size:15px;-webkit-text-size-adjust:100%}
+body{background:radial-gradient(120% 70% at 50% -10%,#1f2733 0,#11141a 62%);color:var(--text);font-family:var(--ff-u);font-size:15px;-webkit-text-size-adjust:100%}
 [hidden]{display:none!important}
 canvas{position:absolute;inset:0;width:100%;height:100%}
 button{font:inherit;color:inherit;cursor:pointer;border:0;background:none;-webkit-tap-highlight-color:transparent;transition:transform .1s,opacity .2s,background .2s,border-color .2s}
@@ -952,6 +952,74 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
  .dock{padding:7px;gap:5px}.field,.qb button,.quick button,.qk2 button,.qk3 button,.qk4 button,.qk5 button,.qk6 button{height:34px}.main{height:38px}.sell button,.acts button{height:34px}
  .betrow{flex-wrap:wrap}.field{flex:1 1 100%}.cfrow{flex-wrap:wrap}.cfrow .betrow{flex-basis:100%}.risk b{display:none}.kpi{padding:2px 6px}
 }
+/* ===== Theme v6: Farben, Ordnung, Rug, Tür-3D, UNO ===== */
+#g-rug{--ac:#47c487}#g-bj{--ac:#e2b659}#g-coin{--ac:#eab94d}#g-spin{--ac:#d45cff}#g-door{--ac:#ec9550}#g-uno{--ac:#ef5b4f}
+.tabs button[data-game=rug]{--ac:#47c487}.tabs button[data-game=bj]{--ac:#e2b659}.tabs button[data-game=coin]{--ac:#eab94d}.tabs button[data-game=spin]{--ac:#d45cff}.tabs button[data-game=door]{--ac:#ec9550}.tabs button[data-game=uno]{--ac:#ef5b4f}
+.tabs button .ic{color:color-mix(in srgb,var(--ac) 60%,var(--muted))}
+.tabs button.on{color:var(--ac)}.tabs button.on .ic{color:var(--ac)}.tabs button.on::after{background:var(--ac)}
+.deck .main:not(.sec):not(#spSpin){background:linear-gradient(color-mix(in srgb,var(--ac) 80%,#fff),var(--ac) 45%,color-mix(in srgb,var(--ac) 70%,#000));border-color:color-mix(in srgb,var(--ac) 60%,#fff);color:#10130f;box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 2px 0 color-mix(in srgb,var(--ac) 40%,#000)}
+.deck .kpi{border-left:3px solid var(--ac)}
+.deck .kpi small{color:color-mix(in srgb,var(--ac) 45%,var(--muted))}
+.field:focus-within{border-color:var(--ac,var(--brass))}
+.cfrow .sides button.on{border-color:var(--ac);color:var(--ac);background:color-mix(in srgb,var(--ac) 14%,var(--panel2))}
+.sell button{color:var(--ac);border-color:color-mix(in srgb,var(--ac) 40%,var(--line2))}
+/* weniger Text */
+#g-rug .kpis{grid-template-columns:repeat(2,1fr)}#g-rug .kpi:nth-child(3){display:none}
+.un-panel .kpis{grid-template-columns:repeat(2,1fr)}.un-panel .kpi:nth-child(3){display:none}
+.felt-text,.ladcap{display:none}
+.stage #emptyHist{display:none}
+/* Crash-Rug */
+.stage{background:#0a1017;border-color:#22313f}
+.mult{top:8px}
+.mult::before{content:"MULTIPLIKATOR";font-size:.56rem;letter-spacing:.32em;color:#6f8196;margin-bottom:-2px}
+.mult b{font-size:clamp(2.8rem,10vw,4.6rem);text-shadow:0 3px 0 rgba(0,0,0,.35)}
+.mult b.sold{color:#f0cf7a}
+.mult span{font-size:.8rem;letter-spacing:.04em}
+.stage .hist .chip{background:rgba(15,24,35,.9);border-color:#2c3d4e;border-radius:6px}
+/* Tür-Spiel in 3D */
+.doors{perspective:1100px;perspective-origin:50% 35%;gap:12px}
+.doors.idle .door{opacity:.92;filter:none;animation:dsway 6s ease-in-out infinite;animation-delay:calc(var(--n) * -.7s)}
+@keyframes dsway{50%{transform:rotateY(calc(var(--ry,0deg) + 3deg)) translateZ(10px)}}
+.door{transform-style:preserve-3d;transform:rotateY(var(--ry,0deg));transition:transform .5s cubic-bezier(.2,.9,.3,1),opacity .4s,filter .4s}
+.door::before{content:"";position:absolute;left:4%;right:4%;bottom:-9px;height:16px;background:radial-gradient(ellipse at 50% 50%,rgba(0,0,0,.7),transparent 70%);transform:translateZ(-30px)}
+.door .frame{border-radius:42% 42% 3px 3px / 18% 18% 3px 3px;border:5px solid #7a5230;border-top-width:6px;background:#080402;box-shadow:0 14px 18px -10px #000,inset 0 0 26px #000;transform-style:preserve-3d;perspective:900px}
+.door .leaf{border-radius:inherit;transform-style:preserve-3d;transition:transform 1.15s cubic-bezier(.3,1.05,.3,1),filter .9s;background:linear-gradient(100deg,#6d4524,#8a5a30 45%,#5c3a1e);box-shadow:inset 0 0 0 2px rgba(0,0,0,.35),inset 0 -20px 30px rgba(0,0,0,.35)}
+.door.open .leaf{transform:rotateY(-114deg);filter:brightness(.7)}
+.door .num{display:block;margin:0 auto;padding:1px 9px;border-radius:5px;background:linear-gradient(#e6c883,#a7812f);color:#2b1c05;font:700 .8rem var(--ff-d);box-shadow:0 1px 0 #5f4817}
+.door:not(:disabled):hover{transform:rotateY(var(--ry,0deg)) translateY(-8px) translateZ(34px)}
+.door:not(:disabled):hover .frame{transform:none;box-shadow:0 20px 24px -12px #000,0 0 0 2px var(--lc),inset 0 0 26px #000}
+.door.picked{transform:rotateY(0deg) translateZ(80px) scale(1.05);z-index:6}
+.door.dim{transform:rotateY(var(--ry,0deg)) translateZ(-60px);opacity:.3;filter:grayscale(.6) blur(.5px)}
+.door.open .frame::after{content:"";position:absolute;inset:-20% -50% -10%;background:radial-gradient(ellipse at 35% 55%,rgba(255,224,160,.5),transparent 62%);pointer-events:none;animation:dbeam 1s ease-out;z-index:3}
+@keyframes dbeam{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
+.behind{border-radius:inherit}
+.drfloor{opacity:.35}
+.drsub{font-size:.74rem;color:#e0cfaa;margin-top:36px}
+/* UNO größer */
+.un-arena{--tilt:46deg;padding:0 2px 4px}
+.un-plane{top:54%}
+.un-scene{margin-top:-4px}
+.pl-col .bb{display:none}
+.un-status{font-size:.8rem;min-height:1.1em}
+.un-hand{min-height:calc(var(--hcw) * 1.5 + 26px);padding:22px 8px 2px}
+.mehead{margin-bottom:-2px}
+/* Einzahlen und Daily bunter */
+.mbox{border-top:3px solid #5fc08f;background:radial-gradient(120% 55% at 50% 0,#1f3b36 0,#171c22 62%)}
+#dailyBox{border-top-color:#eab94d;background:radial-gradient(120% 55% at 50% 0,#3a2f1a 0,#171a1f 62%)}
+.mtitle{color:#f2e3b6}
+.presets{gap:12px;margin-top:16px}
+.presets button{width:72px;height:72px;font-size:.78rem;border-width:4px;box-shadow:0 4px 0 rgba(0,0,0,.45),inset 0 0 0 1px rgba(255,255,255,.15)}
+.presets button:nth-child(1){--pc:#c0443f}.presets button:nth-child(2){--pc:#3b74c6}.presets button:nth-child(3){--pc:#2f9a63}.presets button:nth-child(4){--pc:#3a3f49}.presets button:nth-child(5){--pc:#8a52c4}.presets button:nth-child(6){--pc:#d09a2a}
+.presets button.on{outline:3px solid #fff3c4}
+#startGo{background:linear-gradient(#75d9a3,#36996a)!important;color:#07180f!important;border-color:#a5ecc6!important}
+#dailyOpen{background:linear-gradient(#f4d27a,#c4912f)!important;color:#2a1a04!important;border-color:#f8e3a6!important}
+.mbox .field{margin-top:4px}
+.odds div{background:rgba(255,255,255,.03)}
+.doors{padding:6px 12px;gap:12px}
+.door{height:min(calc((100cqh - 12px - (var(--rows,2) - 1) * 12px) / var(--rows,2)),calc((100cqw - 26px - (var(--per,4) - 1) * 12px) / var(--per,4) / .62))}
+.un-scene{margin-top:8px}
+.un-seat.s-top{top:2px}
+.un-hand{padding-bottom:10px}
 </style>
 </head>
 <body>
@@ -985,7 +1053,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
       <button class="main" id="all" disabled hidden>Alles verkaufen</button>
       <button class="main sec rst" id="reset">Guthaben zurücksetzen</button>
       <div class="msg" id="msg" role="status"></div>
-      <button class="infobtn" data-info="inf-rug" aria-label="Info"><i data-ic="info"></i></button><aside class="info" id="inf-rug"><div class="infohd"><b>Info</b><button class="infoclose" aria-label="Schließen"><i data-ic="close"></i></button></div><p class="note">Der Kurs steigt, bis er jederzeit abstürzen kann. Verkaufe Anteile (25 / 50 / 75 / 100 %) oder alles per Leertaste, bevor es passiert. Jede Auszahlung wird um 10 % Steuer gekürzt. Mindesteinsatz $0.10.</p></aside>
+      <button class="infobtn" data-info="inf-rug" aria-label="Info"><i data-ic="info"></i></button><aside class="info" id="inf-rug"><div class="infohd"><b>Info</b><button class="infoclose" aria-label="Schließen"><i data-ic="close"></i></button></div><p class="note">Der Kurs steigt und kann jederzeit abstürzen. Verkaufe Anteile (25 / 50 / 75 / 100 %) oder alles per Leertaste. Mindesteinsatz $0.10.</p></aside>
     </section>
   </div></div>
 
@@ -1005,7 +1073,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
       <div class="acts"><button id="bjHit" disabled>Karte</button><button id="bjStand" disabled>Halten</button><button id="bjDouble" disabled>Verdoppeln</button></div>
       <button class="main sec rst" id="bjReset">Guthaben zurücksetzen</button>
       <div class="msg" id="bjMsg" role="status"></div>
-      <button class="infobtn" data-info="inf-bj" aria-label="Info"><i data-ic="info"></i></button><aside class="info" id="inf-bj"><div class="infohd"><b>Info</b><button class="infoclose" aria-label="Schließen"><i data-ic="close"></i></button></div><p class="note">Blackjack zahlt 3:2. Bei Unentschieden bekommst du nur einen Teil deines Einsatzes zurück. Der Dealer zählt Karten und rechnet jeden Zug durch. Verdoppeln ist auf zwei Karten möglich, wenn dein Guthaben reicht.</p></aside>
+      <button class="infobtn" data-info="inf-bj" aria-label="Info"><i data-ic="info"></i></button><aside class="info" id="inf-bj"><div class="infohd"><b>Info</b><button class="infoclose" aria-label="Schließen"><i data-ic="close"></i></button></div><p class="note">Blackjack zahlt 3:2. Bei Unentschieden gibt es nur einen Teil des Einsatzes zurück. Verdoppeln ist auf zwei Karten möglich.</p></aside>
     </section>
   </div></div>
 
@@ -1022,7 +1090,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
           <div class="face back"><svg class="fs" viewBox="0 0 200 200"><defs><linearGradient id="gnum" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff3b0"/><stop offset=".5" stop-color="#e0a622"/><stop offset="1" stop-color="#8a5a08"/></linearGradient><path id="arcZ" d="M100,100 m-68,0 a68,68 0 1,1 136,0 a68,68 0 1,1 -136,0"/></defs><circle cx="100" cy="100" r="54" fill="rgba(122,76,5,.10)" stroke="rgba(255,243,176,.7)" stroke-width="1"/><circle cx="100" cy="100" r="51" fill="none" stroke="#8a5a08" stroke-width="1.2" opacity=".8"/><text font-family="'Arial Black',system-ui,sans-serif" font-size="11" font-weight="900" fill="#7a4c05"><textPath href="#arcZ" textLength="420" lengthAdjust="spacing">★ LHX COIN ★ ONE DOLLAR ★ LHX COIN ★ ONE DOLLAR</textPath></text><ellipse cx="74.3" cy="130.6" rx="8" ry="3.4" transform="rotate(195 74.3 130.6)" fill="#7a4c05" opacity=".88" stroke="#ffe9a0" stroke-width=".5"/><ellipse cx="65.4" cy="120.0" rx="8" ry="3.4" transform="rotate(265 65.4 120.0)" fill="#7a4c05" opacity=".88" stroke="#ffe9a0" stroke-width=".5"/><ellipse cx="60.6" cy="106.9" rx="8" ry="3.4" transform="rotate(235 60.6 106.9)" fill="#7a4c05" opacity=".88" stroke="#ffe9a0" stroke-width=".5"/><ellipse cx="60.6" cy="93.1" rx="8" ry="3.4" transform="rotate(305 60.6 93.1)" fill="#7a4c05" opacity=".88" stroke="#ffe9a0" stroke-width=".5"/><ellipse cx="65.4" cy="80.0" rx="8" ry="3.4" transform="rotate(275 65.4 80.0)" fill="#7a4c05" opacity=".88" stroke="#ffe9a0" stroke-width=".5"/><ellipse cx="74.3" cy="69.4" rx="8" ry="3.4" transform="rotate(345 74.3 69.4)" fill="#7a4c05" opacity=".88" stroke="#ffe9a0" stroke-width=".5"/><ellipse cx="125.7" cy="69.4" rx="8" ry="3.4" transform="rotate(15 125.7 69.4)" fill="#7a4c05" opacity=".88" stroke="#ffe9a0" stroke-width=".5"/><ellipse cx="134.6" cy="80.0" rx="8" ry="3.4" transform="rotate(85 134.6 80.0)" fill="#7a4c05" opacity=".88" stroke="#ffe9a0" stroke-width=".5"/><ellipse cx="139.4" cy="93.1" rx="8" ry="3.4" transform="rotate(55 139.4 93.1)" fill="#7a4c05" opacity=".88" stroke="#ffe9a0" stroke-width=".5"/><ellipse cx="139.4" cy="106.9" rx="8" ry="3.4" transform="rotate(125 139.4 106.9)" fill="#7a4c05" opacity=".88" stroke="#ffe9a0" stroke-width=".5"/><ellipse cx="134.6" cy="120.0" rx="8" ry="3.4" transform="rotate(95 134.6 120.0)" fill="#7a4c05" opacity=".88" stroke="#ffe9a0" stroke-width=".5"/><ellipse cx="125.7" cy="130.6" rx="8" ry="3.4" transform="rotate(165 125.7 130.6)" fill="#7a4c05" opacity=".88" stroke="#ffe9a0" stroke-width=".5"/><text x="102" y="130" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="78" font-weight="900" fill="rgba(60,30,0,.45)">1</text><text x="100" y="127" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="78" font-weight="900" fill="url(#gnum)" stroke="#7a4c05" stroke-width="2" paint-order="stroke">1</text><text x="100" y="147" text-anchor="middle" font-family="'Arial Black',system-ui,sans-serif" font-size="11" font-weight="900" letter-spacing="5" fill="#7a4c05">ZAHL</text></svg></div>
         </div></div></div>
         <div class="cshadow" id="cfShadow"></div>
-        <div class="cfresult" id="cfResult">Wähle Seite und Risiko</div>
+        <div class="cfresult" id="cfResult"></div>
         <div class="pot" id="cfPotBox"><small>POT</small><b id="cfPot">$0.00</b></div>
         <div class="ladcap">BONUS-LEITER · AUF DEN GEWINN NACH „ERNEUT RISKIEREN“</div>
         <div class="ladder" id="cfLadder"></div>
@@ -1042,7 +1110,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
       <button class="main" id="cfCash" hidden>Gewinn sichern</button>
       <button class="main sec rst" id="cfReset">Guthaben zurücksetzen</button>
       <div class="msg" id="cfMsg" role="status"></div>
-      <button class="infobtn" data-info="inf-coin" aria-label="Info"><i data-ic="info"></i></button><aside class="info" id="inf-coin"><div class="infohd"><b>Info</b><button class="infoclose" aria-label="Schließen"><i data-ic="close"></i></button></div><p class="note">Gewinnst du nach „Erneut riskieren“, kommt zusätzlich ein Bonus auf den Gewinn dieses Flips dazu: +15 %, dann 25, 35, 50, 70, 85 und maximal 100 %. Das Risk Level bleibt gesperrt, bis du verlierst oder Gewinn sicherst.</p></aside>
+      <button class="infobtn" data-info="inf-coin" aria-label="Info"><i data-ic="info"></i></button><aside class="info" id="inf-coin"><div class="infohd"><b>Info</b><button class="infoclose" aria-label="Schließen"><i data-ic="close"></i></button></div><p class="note">Bonus-Leiter nach „Erneut riskieren“: +15 %, 25, 35, 50, 70, 85 und maximal 100 % auf den Gewinn des Flips. Das Risk Level bleibt gesperrt, bis du verlierst oder sicherst.</p></aside>
     </section>
   </div></div>
 
@@ -1061,7 +1129,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
             <div class="ptr" id="spPtr"></div>
           </div>
         </div>
-        <div class="spresult" id="spResult">Setze deinen Einsatz und drehe das Rad</div>
+        <div class="spresult" id="spResult"></div>
         <div class="pot" id="spPotBox"><small>GEWINN</small><b id="spPot">$0.00</b></div>
         <div class="sphist" id="spHist"></div>
       </section>
@@ -1072,7 +1140,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
       <button class="main" id="spSpin">SPIN</button>
       <button class="main sec rst" id="spReset">Guthaben zurücksetzen</button>
       <div class="msg" id="spMsg" role="status"></div>
-      <button class="infobtn" data-info="inf-spin" aria-label="Info"><i data-ic="info"></i></button><aside class="info" id="inf-spin"><div class="infohd"><b>Info</b><button class="infoclose" aria-label="Schließen"><i data-ic="close"></i></button></div><label>Gewinntabelle (bei deinem Einsatz)</label><div class="ptab" id="spTable"></div><p class="note">Einsatz min. $0.10, max. $50. Spin again ist ein kostenloser Zusatzdreh, dein Einsatz bleibt im Spiel. Die Segmente auf dem Rad sind nur Optik, die echten Chancen stehen in der Tabelle.</p></aside>
+      <button class="infobtn" data-info="inf-spin" aria-label="Info"><i data-ic="info"></i></button><aside class="info" id="inf-spin"><div class="infohd"><b>Info</b><button class="infoclose" aria-label="Schließen"><i data-ic="close"></i></button></div><label>Gewinntabelle (bei deinem Einsatz)</label><div class="ptab" id="spTable"></div><p class="note">Einsatz $0.10 bis $50. Spin again ist ein Freispin, der Einsatz bleibt. Die echten Chancen stehen in der Tabelle.</p></aside>
     </section>
   </div></div>
 
@@ -1101,7 +1169,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
       <button class="main" id="drCash" hidden>Cash Out</button>
       <button class="main sec rst" id="drReset">Guthaben zurücksetzen</button>
       <div class="msg" id="drMsg" role="status"></div>
-      <button class="infobtn" data-info="inf-door" aria-label="Info"><i data-ic="info"></i></button><aside class="info" id="inf-door"><div class="infohd"><b>Info</b><button class="infoclose" aria-label="Schließen"><i data-ic="close"></i></button></div><label>Level-Übersicht (bei deinem Einsatz)</label><div class="drtab" id="drTable"></div><p class="note">Die Belohnung ist der Gesamt-Multiplikator auf deinen Einsatz, die Level werden nicht aufmultipliziert. Hinter genau einer Tür pro Level lauert eine Bombe, dann ist alles verloren.</p></aside>
+      <button class="infobtn" data-info="inf-door" aria-label="Info"><i data-ic="info"></i></button><aside class="info" id="inf-door"><div class="infohd"><b>Info</b><button class="infoclose" aria-label="Schließen"><i data-ic="close"></i></button></div><label>Level-Übersicht (bei deinem Einsatz)</label><div class="drtab" id="drTable"></div><p class="note">Belohnung = Gesamt-Multiplikator auf den Einsatz. Hinter einer Tür pro Level lauert eine Bombe.</p></aside>
     </section>
   </div></div>
 
@@ -1145,7 +1213,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
       <button class="main sec" id="unForfeit" hidden>Aufgeben</button>
       <button class="main sec rst" id="unReset">Guthaben zurücksetzen</button>
       <div class="msg" id="unMsg" role="status"></div>
-      <button class="infobtn" data-info="inf-uno" aria-label="Info"><i data-ic="info"></i></button><aside class="info" id="inf-uno"><div class="infohd"><b>Info</b><button class="infoclose" aria-label="Schließen"><i data-ic="close"></i></button></div><label>Auszahlung nach Platzierung</label><div class="unpays" id="unPays"></div><label>Aktuelle Platzierung (nach Punkten)</label><div class="unlive" id="unLive"></div><label>Karten im Stapel: <b id="unDeck2">–</b></label><label>Spielverlauf</label><div class="unlog" id="unLog"></div><p class="note">UNO mit allen 108 Karten, jeder startet mit 7. Es zählt Farbe, Zahl oder Symbol. +2 und Aussetzen lassen sich in jeder Farbe stapeln; auf ein +4 darf mit einem +2 geantwortet werden. Wer nicht antworten kann, nimmt die Strafe an. Platzierung nach Punkten auf der Hand, die Runde dauert maximal 4 Minuten.</p></aside>
+      <button class="infobtn" data-info="inf-uno" aria-label="Info"><i data-ic="info"></i></button><aside class="info" id="inf-uno"><div class="infohd"><b>Info</b><button class="infoclose" aria-label="Schließen"><i data-ic="close"></i></button></div><label>Auszahlung nach Platzierung</label><div class="unpays" id="unPays"></div><label>Aktuelle Platzierung (nach Punkten)</label><div class="unlive" id="unLive"></div><label>Karten im Stapel: <b id="unDeck2">–</b></label><label>Spielverlauf</label><div class="unlog" id="unLog"></div><p class="note">108 Karten, jeder startet mit 7. +2 und Aussetzen sind stapelbar. Auf ein +2 darf ein +4 folgen, auf ein +4 ein +2 in der gewünschten Farbe. Wer nicht antworten kann, nimmt die Strafe an. Platzierung nach Punkten auf der Hand, maximal 4 Minuten.</p></aside>
     </section>
   </div></div>
 
@@ -1158,7 +1226,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
     <div class="flash" id="dyFlash"></div>
     <button class="mclose" id="dailyClose" aria-label="Schließen"><i data-ic="close"></i></button>
     <div class="mtitle">DAILY REWARD</div>
-    <div class="msub" id="dailySub">Einmal pro Tag darfst du eine Truhe öffnen.</div>
+    <div class="msub" id="dailySub">Eine Truhe pro Tag.</div>
     <div class="cscene idle" id="cscene">
       <div class="crays"></div><div class="cbeam"></div>
       <div class="cstage" id="cstage">
@@ -1176,14 +1244,14 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
     </div>
     <div class="odds" id="dailyOdds"></div>
     <button class="main" id="dailyOpen">Truhe öffnen</button>
-    <p class="note" style="margin-top:8px">Nur Demo-Spielgeld. Die Truhe lässt sich einmal pro Kalendertag öffnen, der Zeitpunkt wird lokal in deinem Browser gespeichert.</p>
+    
   </div>
 </div>
 
 <div class="modal" id="startModal" hidden role="dialog" aria-modal="true" aria-label="Startguthaben wählen">
   <div class="mbox">
     <div class="mtitle">STARTGUTHABEN</div>
-    <div class="msub">Mit wie viel Demo-Geld willst du starten? Es ist kein echtes Geld, es gibt keine Ein- oder Auszahlungen.</div>
+    <div class="msub">Nur Spielgeld. Keine Ein- oder Auszahlungen.</div>
     <div class="presets" id="startPresets"></div>
     <label for="startAmt" style="text-align:left;margin-top:14px">Oder eigener Betrag</label>
     <div class="field"><i>$</i><input id="startAmt" type="number" inputmode="decimal" min="1" max="1000000" step="1" value="1000"></div>
@@ -1431,6 +1499,194 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
     reset: () => [392, 523, 659].forEach((f, i) => tone(f, .2, 'sine', .1, i * .09))
   };
 
+  // ---- Bessere Soundeffekte ----
+  const bellS = (f, v = .1, w = 0, d = .9) => [[1, 1], [2.76, .42], [5.4, .18], [8.9, .08]].forEach(([m, a], i) => tone(f * m, d / (1 + i * .75), 'sine', v * a, w));
+  const thud = (f0 = 140, f1 = 45, d = .18, v = .3, w = 0) => { tone(f0, d, 'sine', v, w, f1); noise(.03, v * .45, 900, w); };
+  const tk = (f = 1800, v = .05, w = 0) => tone(f, .025, 'triangle', v, w, f * .6);
+  const plk = (f, v = .1, w = 0, d = .35) => { tone(f, d, 'triangle', v, w); tone(f * 2, d * .5, 'sine', v * .3, w); };
+  const arp = (notes, v, gap, d, type = 'triangle', w0 = 0) => notes.forEach((f, i) => { tone(f, d, type, v, w0 + i * gap); tone(f * 2, d * .6, 'sine', v * .25, w0 + i * gap); });
+  const glit = (n, f0, span, v, w0, gap) => { for (let i = 0; i < n; i++) bellS(f0 + Math.random() * span, v, w0 + i * gap, .45); };
+  const PENT = [523, 587, 659, 784, 880, 1046, 1175, 1318, 1568, 1760];
+  Object.assign(sfx, {
+    click: () => { tk(1500, .05); thud(320, 160, .05, .07); },
+    card: () => { sweep(.09, 5200, 2300, .11); noise(.05, .12, 4200); thud(240, 120, .05, .1, .03); },
+    chip: () => { bellS(2600, .05, 0, .3); bellS(3500, .03, .025, .25); noise(.02, .12, 8000); },
+    flip: () => { sweep(.12, 3800, 6500, .08); tk(2500, .03); },
+    cfWhoosh: d => { sweep(d / 1000 * .9, 400, 3500, .1); tone(180, d / 1000 * .85, 'sine', .04, 0, 900); },
+    cfTick: f => tk(f, .03),
+    cfDrum: (d, n) => { for (let i = 0; i < n; i++) thud(95, 52, .13, .2, d / 1000 * (1 - Math.pow(1 - i / n, 1.8)) * .92); tone(55, d / 1000, 'sawtooth', .03, 0, 190); },
+    cfClank: () => { bellS(1900, .11, 0, 1.1); noise(.06, .26, 7000); thud(200, 90, .14, .2); },
+    cfWin: n => { const k = 1 + Math.min(n, 8) * .045; arp([523, 659, 784, 1046, 1318, 1568].map(f => f * k), .09, .07, .45); glit(5, 2200, 1800, .035, .3, .07); tone(65 * k, .8, 'sine', .12, 0, 130 * k); },
+    cfLose: () => { tone(294, .8, 'sawtooth', .06, 0, 110); tone(220, .9, 'triangle', .1, .05, 82); thud(90, 30, .9, .3, .1); noise(.7, .16, 350, .1); },
+    cfCash: () => { for (let i = 0; i < 10; i++) bellS(2200 + Math.random() * 1800, .045, i * .045, .3); bellS(1568, .08, .45, .9); bellS(2093, .06, .52, .9); },
+    cfRisk: i => plk(330 + i * 120, .07),
+    cfCharge: ms => { sweep(ms / 1000, 200, 2400, .12); tone(110, ms / 1000, 'sine', .08, 0, 800); },
+    cfClink: f => bellS(f, .07, 0, .5),
+    cfHeart: () => { thud(70, 38, .15, .38); thud(62, 36, .17, .32, .17); },
+    cfSlam: () => { thud(120, 28, .55, .5); noise(.4, .3, 500); bellS(1800, .05, .02, .6); },
+    spTick: () => tk(1100 + Math.random() * 300, .04),
+    drKnock: () => { thud(190, 85, .08, .3); thud(170, 80, .08, .26, .13); noise(.04, .1, 700); },
+    drCreak: () => { tone(150, .8, 'sawtooth', .035, 0, 62); sweep(.75, 500, 1500, .06); tone(300, .6, 'triangle', .015, .1, 130); },
+    drSafe: lv => { const k = 1 + lv * .05; arp([659, 784, 988, 1318].map(f => f * k), .09, .08, .4); glit(4, 2400, 1600, .03, .25, .06); },
+    drBomb: () => { noise(.3, .12, 7000); noise(1.3, .5, 360, .3); thud(80, 22, 1.3, .6, .3); bellS(3200, .03, .5, 1.4); noise(.9, .18, 2600, .5); },
+    drLevel: () => { sweep(.5, 200, 1800, .1); arp([392, 523, 659], .06, .1, .3, 'triangle', .35); },
+    unTurn: () => { bellS(988, .05, 0, .35); bellS(1480, .04, .09, .35); },
+    unShuffle: () => { for (let i = 0; i < 18; i++) { noise(.045, .09 + (i % 3) * .02, 4800 - i * 100, i * .04); } sweep(.7, 700, 2800, .06); },
+    unDeal: () => { noise(.05, .1, 6800); tk(2100, .02); },
+    unPlay: () => { noise(.07, .22, 4000); thud(180, 80, .09, .22); tk(1100, .04, .01); },
+    unDraw: () => { sweep(.22, 3400, 800, .15); noise(.05, .1, 5200, .18); },
+    unSkip: () => { thud(150, 60, .2, .22); sweep(.3, 2400, 500, .13, .02); tone(220, .3, 'triangle', .07, .05, 110); },
+    unRev: () => { sweep(.32, 500, 3200, .13); sweep(.32, 3200, 500, .13, .22); arp([660, 880, 1100], .05, .06, .2, 'triangle', .1); },
+    unD2: () => { thud(120, 42, .35, .32); noise(.14, .22, 1800); arp([440, 330], .06, .1, .14, 'square', .02); },
+    unW4: () => { thud(60, 24, .9, .5); noise(.5, .26, 600); sweep(.6, 300, 4200, .18); arp([233, 277, 349, 415], .06, .03, .5, 'sawtooth', .04); },
+    unWild: () => { sweep(.45, 700, 3800, .12); arp([523, 659, 784, 1046, 1318], .06, .06, .35); },
+    unBtn: () => { tk(2400, .05); thud(420, 200, .08, .16); noise(.03, .18, 2500); },
+    unCall: () => { sfx.unBtn(); arp([784, 988, 1175, 1568], .07, .08, .3, 'triangle', .06); sweep(.4, 800, 3000, .1, .1); },
+    unAlarm: () => { for (let i = 0; i < 6; i++) tone(i % 2 ? 700 : 1000, .1, 'triangle', .07, i * .11); },
+    unTick: () => tk(1250, .035),
+    unStack: n => { thud(120 + n * 18, 50, .3, .3); noise(.12, .2, 1600); arp([440 + n * 40, 560 + n * 40, 680 + n * 40], .05, .06, .12, 'square'); },
+    unThink: () => tone(330 + Math.random() * 60, .05, 'sine', .025),
+    unWin: () => { sfx.spMega(); arp([523, 659, 784, 1046, 1318, 1568], .07, .09, .45, 'triangle', .2); },
+    unPodium: () => { for (let i = 0; i < 10; i++) thud(130, 70, .08, .16, i * .09); arp([392, 523, 659, 784], .05, .02, .6, 'sawtooth', .9); },
+    dailyRattle: () => { for (let i = 0; i < 14; i++) { thud(140 + Math.random() * 60, 80, .06, .12, i * .1); noise(.04, .08, 1500, i * .1 + .02); } tone(70, 1.4, 'sawtooth', .03, 0, 160); },
+    dailyLock: () => { bellS(2200, .07, 0, .4); noise(.08, .22, 5000); },
+    dailyOpen: () => { tone(150, .9, 'sawtooth', .04, 0, 60); sweep(.8, 400, 2400, .08); glit(6, 1800, 1800, .04, .2, .09); },
+    spWhoosh: () => { sweep(1.2, 300, 3200, .08); tone(160, 1.2, 'sine', .05, 0, 700); },
+    spNix: () => { arp([392, 330, 262, 196], .07, .17, .3, 'triangle'); noise(.5, .1, 600, .1); },
+    spSmall: () => arp([659, 784, 988, 1318], .09, .07, .25),
+    spAgain: () => { sweep(.7, 300, 3200, .1); arp([1046, 1318, 1568], .08, .08, .25, 'triangle', .45); },
+    spBig: () => { arp([523, 659, 784, 1046, 1318], .1, .08, .4); glit(4, 2200, 1600, .04, .3, .07); tone(110, .5, 'sawtooth', .05, 0, 220); },
+    spMega: () => { sfx.spBig(); arp([392, 523, 659, 784, 1046, 1318, 1568], .06, .09, .55, 'sawtooth', .5); noise(.9, .26, 400); thud(70, 26, 1, .4); },
+    spJackpot: () => { sfx.spMega(); for (let i = 0; i < 16; i++) tone(i % 2 ? 880 : 660, .16, 'triangle', .05, i * .17); glit(22, 1800, 1800, .04, .3, .1); },
+    push: () => tone(280, .3, 'triangle', .09, 0, 190),
+    bj: () => { arp([523, 659, 784, 1046, 1318], .1, .09, .4); glit(4, 2200, 1600, .035, .35, .07); },
+    bust: () => { noise(.4, .18, 700); tone(260, .5, 'sawtooth', .07, 0, 70); thud(100, 40, .4, .25); },
+    lose: () => { tone(330, .5, 'triangle', .1, 0, 110); thud(90, 40, .3, .18, .05); },
+    error: () => { tone(180, .16, 'triangle', .08); tone(130, .2, 'triangle', .08, .12); },
+    start: () => { sweep(.4, 300, 2400, .1); arp([392, 523, 659], .06, .08, .25, 'triangle', .2); },
+    tick: (x, sp) => tone(Math.min(1500, 240 + Math.log(x) * 380), .04, 'sine', .028 + Math.min(.03, sp * .006)),
+    small: () => thud(180, 110, .1, .08),
+    mid: () => { tone(260, .18, 'triangle', .05, 0, 640); tk(900, .03); },
+    big: () => { sweep(.3, 400, 3800, .08); tone(300, .28, 'triangle', .05, 0, 1300); },
+    sell: (p, x) => { const b = 880 + Math.min(600, x * 30); bellS(b, .09, 0, .35); bellS(b * 1.5, .08, .08, .5); if (p >= 1) bellS(b * 2, .06, .18, .8); },
+    win: () => arp([523, 659, 784, 1046], .1, .08, .35),
+    rug: () => { noise(.7, .32, 500); tone(190, .8, 'sawtooth', .1, 0, 40); thud(90, 28, .9, .35); },
+    reset: () => arp([392, 523, 659], .08, .09, .25, 'sine')
+  });
+
+  // ---- Hintergrundmusik: pro Spiel eine eigene, endlos variierende Komposition ----
+  const Music = (() => {
+    let sg = null, timer = null, cur = null, nextT = 0, bar = 0, S = {}, nbuf = null;
+    const GM = { rug:1.8, bj:1.8, coin:2.3, spin:1.8, door:2.1, uno:1.7 };
+    const CH = { m9:[0, 3, 7, 10, 14], M7:[0, 4, 7, 11], D7:[0, 4, 7, 10], m7:[0, 3, 7, 10], M9:[0, 4, 7, 11, 14], D13:[0, 4, 10, 14, 21], s4:[0, 5, 7, 10], m:[0, 3, 7], M:[0, 4, 7], M6:[0, 4, 7, 9], D9:[0, 4, 7, 10, 14] };
+    const F = n => 440 * Math.pow(2, (n - 69) / 12), R = a => a[Math.floor(Math.random() * a.length)], P = p => Math.random() < p;
+    const voice = (r, t) => CH[t].map(i => r + i);
+    const noiseBuf = c => nbuf || (nbuf = (() => { const b = c.createBuffer(1, c.sampleRate * 2, c.sampleRate), d = b.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1; return b; })());
+    const gn = (c, t, a, d, v, rel = .2) => { const g = c.createGain(); g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(Math.max(.0002, v), t + a); g.gain.exponentialRampToValueAtTime(.0001, t + a + d + rel); g.connect(sg); return g; };
+    const pad = (t, f, dur, v, cut = 800, type = 'sawtooth') => {
+      const c = audio.ctx, g = gn(c, t, Math.min(1.4, dur * .35), dur * .6, v, Math.min(1.6, dur * .4)), lp = c.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = cut; lp.Q.value = .4; lp.connect(g);
+      [-7, 7].forEach(d => { const o = c.createOscillator(); o.type = type; o.frequency.value = f; o.detune.value = d; o.connect(lp); o.start(t); o.stop(t + dur + 1.8); });
+    };
+    const pluck = (t, f, dur, v, type = 'triangle', cut = 3200) => {
+      const c = audio.ctx, o = c.createOscillator(), lp = c.createBiquadFilter(), g = gn(c, t, .008, dur, v, .05);
+      o.type = type; o.frequency.value = f; lp.type = 'lowpass'; lp.frequency.setValueAtTime(cut, t); lp.frequency.exponentialRampToValueAtTime(Math.max(250, cut * .2), t + dur);
+      o.connect(lp); lp.connect(g); o.start(t); o.stop(t + dur + .15);
+    };
+    const bellM = (t, f, v, dur = 1.8) => [[1, 1], [2.01, .3], [3.97, .1]].forEach(([m, a], i) => {
+      const c = audio.ctx, o = c.createOscillator(), g = gn(c, t, .01, dur / (1 + i * .6), v * a, .1); o.type = 'sine'; o.frequency.value = f * m; o.connect(g); o.start(t); o.stop(t + dur + .3);
+    });
+    const bassM = (t, f, dur, v, type = 'sine') => {
+      const c = audio.ctx, o = c.createOscillator(), lp = c.createBiquadFilter(), g = gn(c, t, .015, dur, v, .12);
+      o.type = type; o.frequency.value = f; lp.type = 'lowpass'; lp.frequency.value = 420; o.connect(lp); lp.connect(g); o.start(t); o.stop(t + dur + .3);
+    };
+    const kick = (t, v) => { const c = audio.ctx, o = c.createOscillator(), g = gn(c, t, .004, .16, v, .05); o.frequency.setValueAtTime(130, t); o.frequency.exponentialRampToValueAtTime(42, t + .15); o.connect(g); o.start(t); o.stop(t + .3); };
+    const hit = (t, dur, v, type, freq, q = 1) => {
+      const c = audio.ctx, s = c.createBufferSource(), f = c.createBiquadFilter(), g = gn(c, t, .004, dur, v, .02);
+      s.buffer = noiseBuf(c); f.type = type; f.frequency.value = freq; f.Q.value = q; s.connect(f); f.connect(g); s.start(t, Math.random() * 1.5, dur + .1);
+    };
+    const hat = (t, v) => hit(t, .04, v, 'highpass', 7500);
+    const snare = (t, v) => { hit(t, .12, v, 'bandpass', 1900, .8); };
+    const clap = (t, v) => { hit(t, .07, v, 'bandpass', 1300, 1.2); hit(t + .012, .07, v * .7, 'bandpass', 1500, 1.2); };
+    const brush = (t, v) => hit(t, .16, v, 'bandpass', 3800, .6);
+    const thudM = (t, v) => { const c = audio.ctx, o = c.createOscillator(), g = gn(c, t, .01, .3, v, .1); o.frequency.setValueAtTime(75, t); o.frequency.exponentialRampToValueAtTime(38, t + .3); o.connect(g); o.start(t); o.stop(t + .5); };
+
+    const SC = {
+      rug: { bpm:92, bar(t, spb, b, s) {   // lockerer Lo-Fi-Beat, trading-floor
+        const prog = s.prog = (b % 4 === 0) ? R([[[57, 'm9'], [53, 'M7'], [60, 'M7'], [55, 'M6']], [[62, 'm9'], [55, 'D7'], [60, 'M9'], [57, 'm7']], [[57, 'm7'], [64, 'D7'], [53, 'M7'], [55, 'D7']]]) : s.prog;
+        const [r, ty] = prog[b % 4], v = voice(r, ty);
+        v.forEach(n => pad(t, F(n), spb * 4, .011, 760, 'triangle'));
+        bassM(t, F(r - 24), spb * 1.4, .16); bassM(t + spb * 2, F(r - 24 + (P(.5) ? 7 : 0)), spb * 1.2, .13); if (P(.4)) bassM(t + spb * 3.5, F(r - 12), spb * .5, .1);
+        kick(t, .13); if (P(.7)) kick(t + spb * 2, .1); snare(t + spb, .022); snare(t + spb * 3, .026);
+        for (let i = 0; i < 8; i++) if (P(.75)) hat(t + i * spb / 2 + (i % 2 ? spb * .03 : 0), i % 2 ? .016 : .009);
+        const sc = [0, 3, 5, 7, 10, 12, 15];
+        for (let i = 0; i < 8; i++) if (P(.34)) { const n = 57 + R(sc) + (P(.3) ? 12 : 0); pluck(t + i * spb / 2, F(n), .5, .05, 'triangle', 2600); }
+      } },
+      bj: { bpm:88, bar(t, spb, b, s) {   // Lounge-Jazz mit Swing
+        const A = [[[62, 'm9'], [55, 'D13'], [60, 'M9'], [57, 'D9']], [[64, 'm7'], [57, 'D7'], [62, 'm9'], [55, 'D13']], [[60, 'M9'], [69, 'm7'], [62, 'm9'], [55, 'D13']]];
+        s.prog = (b % 4 === 0) ? R(A) : s.prog; const prog = s.prog, [r, ty] = prog[b % 4], nx = prog[(b + 1) % 4][0], v = voice(r, ty);
+        const walk = [r - 24, r - 24 + R([4, 3, 7]), r - 24 + R([7, 9, 10]), nx - 24 + R([1, -1])];
+        walk.forEach((n, i) => bassM(t + i * spb, F(n < 36 ? n + 12 : n), spb * .9, .15, 'triangle'));
+        for (let i = 0; i < 4; i++) { brush(t + i * spb, i % 2 ? .02 : .012); if (P(.8)) hat(t + (i + .667) * spb, .011); }
+        brush(t + spb, .028); brush(t + spb * 3, .028); if (P(.5)) kick(t, .05);
+        [1.67, 3.67].forEach(x => { if (P(.65)) v.slice(0, 4).forEach(n => pluck(t + x * spb, F(n + 12), .9, .026, 'sine', 2400)); });
+        const sc = [0, 2, 3, 5, 7, 9, 10, 12, 14];
+        for (let i = 0; i < 4; i++) if (P(.38)) bellM(t + (i + (P(.5) ? .667 : 0)) * spb, F(r + 12 + R(sc)), .03, 1.2);
+      } },
+      coin: { bpm:66, bar(t, spb, b, s) {   // mystisch, langsam, D dorisch
+        const prog = [[50, 'm9'], [46, 'M7'], [55, 'm7'], [57, 's4']];
+        if (b % 2 === 0) { const [r, ty] = prog[(b / 2) % 4]; s.cur = [r, ty]; voice(r, ty).forEach(n => pad(t, F(n), spb * 8, .012, 620)); pad(t, F(r - 24), spb * 8, .03, 260, 'sine'); thudM(t, .11); }
+        const sc = [0, 2, 3, 5, 7, 9, 10], r = s.cur[0];
+        for (let i = 0; i < 4; i++) if (P(.36)) bellM(t + i * spb + (P(.4) ? spb / 2 : 0), F(r + 24 + R(sc)), .035, 3);
+        if (P(.3)) for (let i = 0; i < 6; i++) pluck(t + i * spb * .5, F(r + 12 + [0, 7, 12, 14, 12, 7][i]), .6, .026, 'sine', 3000);
+        if (b % 2 === 1 && P(.5)) thudM(t + spb * 2, .07);
+      } },
+      spin: { bpm:108, bar(t, spb, b, s) {   // Synthwave, gedämpft
+        const prog = (b % 8 < 4) ? [[57, 'm'], [53, 'M'], [60, 'M'], [55, 'M']] : [[57, 'm'], [55, 'M'], [53, 'M'], [64, 'M']];
+        const [r, ty] = prog[b % 4], v = voice(r, ty);
+        v.forEach(n => pad(t, F(n), spb * 4, .008, 900));
+        for (let i = 0; i < 8; i++) bassM(t + i * spb / 2, F(r - 24 + (i % 4 === 3 ? 12 : 0)), spb * .4, .075, 'sawtooth');
+        for (let i = 0; i < 4; i++) kick(t + i * spb, .1);
+        clap(t + spb, .05); clap(t + spb * 3, .05); for (let i = 0; i < 8; i++) hat(t + i * spb / 2 + spb / 4 * (i % 2), .016);
+        const pat = P(.5) ? [0, 1, 2, 1] : [0, 2, 1, 2];
+        for (let i = 0; i < 16; i++) { if (i % 4 === 3 && P(.4)) continue; pluck(t + i * spb / 4, F(v[pat[i % 4] % v.length] + 12 + (i % 8 > 3 ? 12 : 0)), .22, .026, 'sawtooth', 2200); }
+      } },
+      door: { bpm:54, bar(t, spb, b, s) {   // dunkles Ambient im Verlies
+        if (b % 4 === 0) { s.r = R([36, 37, 34]); pad(t, F(s.r), spb * 16, .03, 240, 'sawtooth'); pad(t, F(s.r + 7), spb * 16, .016, 300, 'sine'); [0, 3, 8].forEach(i => pad(t, F(s.r + 24 + i), spb * 16, .007, 520, 'triangle')); }
+        if (b % 2 === 0) { thudM(t, .1); thudM(t + spb * .6, .07); }
+        if (P(.5)) bellM(t + R([0, 1, 2, 3]) * spb, F(s.r + 36 + R([0, 1, 3, 7, 8, 12])), .03, 4);
+        if (P(.22)) hit(t + spb, spb * 3, .016, 'bandpass', R([400, 700, 1100]), 4);
+        if (P(.18)) pad(t + spb, F(s.r + 12 + R([0, 7])), spb * 3, .012, 340, 'sawtooth');
+      } },
+      uno: { bpm:112, bar(t, spb, b, s) {   // verspielt, freundlich
+        const A = [[[60, 'M'], [55, 'M'], [57, 'm'], [53, 'M']], [[60, 'M'], [57, 'm'], [53, 'M'], [55, 'M']]];
+        s.prog = (b % 4 === 0) ? R(A) : s.prog; const [r, ty] = s.prog[b % 4], v = voice(r, ty);
+        [0, 1.5, 2, 3.5].forEach((x, i) => bassM(t + x * spb, F(r - 24 + (i % 2 ? 7 : 0)), spb * .5, .1, 'triangle'));
+        [.5, 1.5, 2.5, 3.5].forEach(x => v.forEach(n => pluck(t + x * spb, F(n), .22, .014, 'triangle', 2600)));
+        kick(t, .08); kick(t + spb * 2, .07); clap(t + spb, .028); clap(t + spb * 3, .03);
+        for (let i = 0; i < 8; i++) hat(t + i * spb / 2, .01 + (i % 2) * .005);
+        const sc = [0, 2, 4, 7, 9, 12, 14, 16];
+        for (let i = 0; i < 8; i++) if (P(.55)) pluck(t + i * spb / 2, F(60 + R(sc)), .3, .042, 'sine', 3800);
+      } }
+    };
+    const loop = () => {
+      const c = audio.ctx; if (!c || !cur || !audio.on) return;
+      try { const sc = SC[cur], spb = 60 / sc.bpm; while (nextT < c.currentTime + 1) { sc.bar(nextT, spb, bar, S); bar++; nextT += spb * 4; } } catch (e) { console.error('music ' + cur + ': ' + (e && e.message)); }
+    };
+    const stop = () => {
+      if (sg) { const c = audio.ctx, g = sg; try { g.gain.cancelScheduledValues(c.currentTime); g.gain.setValueAtTime(g.gain.value, c.currentTime); g.gain.linearRampToValueAtTime(0, c.currentTime + .9); setTimeout(() => { try { g.disconnect(); } catch (e) {} }, 1800); } catch (e) {} }
+      sg = null; clearInterval(timer); timer = null; cur = null;
+    };
+    const play = name => {
+      if (!SC[name] || cur === name) return;
+      const c = audio.on && ac(); if (!c) return; stop();
+      sg = c.createGain(); sg.gain.setValueAtTime(0, c.currentTime); sg.gain.linearRampToValueAtTime(GM[name] || 1.6, c.currentTime + 2.5); sg.connect(bus(c));
+      cur = name; bar = 0; S = {}; nextT = c.currentTime + .2; loop(); timer = setInterval(loop, 250);
+    };
+    const gameNow = () => { const g = [...document.querySelectorAll('.deck>div[id^=g-]')].find(d => !d.hidden); return g ? g.id.slice(2) : 'rug'; };
+    return { play, stop, sync:() => { if (audio.on && audio.ctx && !cur) play(gameNow()); }, now:gameNow };
+  })();
+  document.addEventListener('visibilitychange', () => { const c = audio.ctx; if (!c) return; if (document.hidden) c.suspend(); else if (audio.on) c.resume(); });
+
   let balance = START, state = 'idle', stake = 0, bet = 0, soldTotal = 0, m = 1, raf = 0;
   let startMoney = START, firstVisit = true;
   try { const sm = parseFloat(localStorage.getItem('lhx_start')); if (Number.isFinite(sm) && sm >= 1) startMoney = sm; } catch (e) {}
@@ -1465,7 +1721,8 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
 
   function draw() {
     ctx.clearRect(0, 0, W, H);
-    const left = 24, right = W - AXIS_W, top = 12, bottom = H - 16, plotW = right - left, slot = plotW / SLOTS;
+    const bgG = ctx.createLinearGradient(0, 0, 0, H); bgG.addColorStop(0, '#0f1823'); bgG.addColorStop(1, '#0a1017'); ctx.fillStyle = bgG; ctx.fillRect(0, 0, W, H);
+    const left = 18, right = W - AXIS_W, top = 14, bottom = H - 18, plotW = right - left, slot = plotW / SLOTS;
     const vis = candles.slice(-SLOTS);
     const cur = vis.length ? Math.max(vis[vis.length - 1].c, 0) : 1;
     let mn = Infinity, mx = -Infinity;
@@ -1475,33 +1732,39 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
     const tLo = mn - range * 0.2, tHi = mx + range * 0.75;
     lo += (tLo - lo) * 0.15; hi += (tHi - hi) * 0.15;
     const Y = v => bottom - (v - lo) / (hi - lo) * (bottom - top);
-
-    ctx.lineWidth = 1; ctx.strokeStyle = 'rgba(255,255,255,.05)';
-    for (let i = 0; i <= SLOTS; i++) { const x = Math.round(left + i * slot) + .5; ctx.beginPath(); ctx.moveTo(x, top); ctx.lineTo(x, bottom); ctx.stroke(); }
-    ctx.font = '600 13px "Segoe UI",system-ui,sans-serif'; ctx.fillStyle = '#8a8f98'; ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+    const UP = rugged ? '#e5584b' : '#47c487', DN = '#e5584b';
+    // Raster
+    ctx.lineWidth = 1; ctx.font = '600 12px "Segoe UI",system-ui,sans-serif'; ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
     for (let i = 0; i < 5; i++) {
       const v = lo + (hi - lo) * (i + .5) / 5, y = Math.round(Y(v)) + .5;
-      ctx.strokeStyle = 'rgba(255,255,255,.06)'; ctx.beginPath(); ctx.moveTo(left, y); ctx.lineTo(W - 8, y); ctx.stroke();
-      ctx.fillText(fmtX(v), W - 12, y);
+      ctx.strokeStyle = 'rgba(160,190,220,.07)'; ctx.setLineDash([2, 6]); ctx.beginPath(); ctx.moveTo(left, y); ctx.lineTo(right + 6, y); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle = '#7d8a99'; ctx.fillText(fmtX(v), W - 12, y);
     }
-
+    ctx.strokeStyle = 'rgba(160,190,220,.12)'; ctx.beginPath(); ctx.moveTo(right + 6, top); ctx.lineTo(right + 6, bottom); ctx.stroke();
+    if (!vis.length) return;
+    // Fläche unter dem Kursverlauf
+    const px = i => left + i * slot + slot / 2;
+    ctx.beginPath(); ctx.moveTo(px(0), bottom);
+    vis.forEach((c, i) => ctx.lineTo(px(i), Y(c.c)));
+    ctx.lineTo(px(vis.length - 1), bottom); ctx.closePath();
+    const ag = ctx.createLinearGradient(0, top, 0, bottom); ag.addColorStop(0, rugged ? 'rgba(229,88,75,.22)' : 'rgba(71,196,135,.24)'); ag.addColorStop(1, 'rgba(71,196,135,0)'); ctx.fillStyle = ag; ctx.fill();
+    // Kerzen
     vis.forEach((c, i) => {
-      const x = left + i * slot + slot / 2, bw = slot * 0.72;
-      const up = c.c >= c.o, col = up ? '#4f9f70' : '#c9564b';
+      const x = px(i), bw = slot * 0.66, up = c.c >= c.o, col = up ? UP : DN;
       const yo = Y(c.o), yc = Y(c.c), yh = Y(Math.max(c.o, c.c) * (1 + c.wh)), yl = Y(Math.min(c.o, c.c) * (1 - c.wl));
-      ctx.strokeStyle = 'rgba(140,140,170,.55)'; ctx.lineWidth = 2;
-      ctx.beginPath(); ctx.moveTo(x, yh); ctx.lineTo(x, yl); ctx.stroke();
+      ctx.strokeStyle = col; ctx.globalAlpha = .75; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x, yh); ctx.lineTo(x, yl); ctx.stroke(); ctx.globalAlpha = 1;
       const by = Math.min(yo, yc), bh = Math.max(8, Math.abs(yo - yc));
-      ctx.fillStyle = col; rrect(x - bw / 2, by, bw, bh, 6); ctx.fill();
+      const g = ctx.createLinearGradient(0, by, 0, by + bh); g.addColorStop(0, up ? '#6fdba5' : '#f08379'); g.addColorStop(1, up ? '#2f9c68' : '#b8453a');
+      ctx.fillStyle = g; rrect(x - bw / 2, by, bw, bh, 5); ctx.fill();
+      ctx.strokeStyle = 'rgba(255,255,255,.22)'; ctx.lineWidth = 1; rrect(x - bw / 2 + .5, by + .5, bw - 1, bh - 1, 5); ctx.stroke();
     });
-
-    if (vis.length) {
-      const last = vis[vis.length - 1], x = left + (vis.length - 1) * slot + slot / 2, y = Y(last.c);
-      const col = rugged ? '#c9564b' : '#86c99f';
-      ctx.strokeStyle = col; ctx.lineWidth = 2; ctx.setLineDash([7, 7]);
-      ctx.beginPath(); ctx.moveTo(x + 4, y); ctx.lineTo(W - AXIS_W + 8, y); ctx.stroke(); ctx.setLineDash([]);
-      ctx.fillStyle = col; ctx.beginPath(); ctx.arc(x, y, 6, 0, 7); ctx.fill();
-    }
+    // aktueller Wert: gestrichelte Linie, Punkt und Preisschild
+    const last = vis[vis.length - 1], x = px(vis.length - 1), y = Y(last.c), col = rugged ? '#e5584b' : '#47c487';
+    ctx.strokeStyle = col; ctx.lineWidth = 1.5; ctx.setLineDash([6, 6]); ctx.beginPath(); ctx.moveTo(x + 6, y); ctx.lineTo(right + 6, y); ctx.stroke(); ctx.setLineDash([]);
+    const rg = ctx.createRadialGradient(x, y, 0, x, y, 14); rg.addColorStop(0, col); rg.addColorStop(1, 'rgba(0,0,0,0)'); ctx.globalAlpha = .45; ctx.fillStyle = rg; ctx.beginPath(); ctx.arc(x, y, 14, 0, 7); ctx.fill(); ctx.globalAlpha = 1;
+    ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(x, y, 4.5, 0, 7); ctx.fill(); ctx.strokeStyle = col; ctx.lineWidth = 2; ctx.stroke();
+    const tag = fmtX(last.c), tw = AXIS_W - 14; ctx.fillStyle = col; rrect(W - tw - 6, y - 11, tw, 22, 6); ctx.fill();
+    ctx.fillStyle = '#06130c'; ctx.font = '700 12px "Segoe UI",system-ui,sans-serif'; ctx.textAlign = 'center'; ctx.fillText(tag, W - tw / 2 - 6, y + 1);
   }
 
   function updateUI() {
@@ -2410,18 +2673,19 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
     dr.arena.appendChild(e);
   }
 
+  const doorRy = (i, n) => { const per = n > 4 ? Math.ceil(n / 2) : n, row = Math.floor(i / per), cnt = Math.min(per, n - row * per), col = i - row * per; return (-(col - (cnt - 1) / 2) * 5).toFixed(1) + 'deg'; };
   function renderDoors(lv, enabled) {
     const n = DL[lv].doors, widths = { 8:'calc(25% - 12px)', 7:'calc(25% - 12px)', 5:'calc(33.33% - 12px)', 4:'calc(25% - 12px)', 3:'calc(33.33% - 12px)', 2:'calc(38% - 12px)' };
     dr.doors.style.setProperty('--dw', widths[n]); dr.doors.style.setProperty('--dmax', n <= 3 ? '210px' : '150px'); dr.doors.style.setProperty('--rows', n > 4 ? 2 : 1); dr.doors.style.setProperty('--per', n > 4 ? Math.ceil(n / 2) : n);
     dr.doors.className = 'doors' + (enabled ? '' : ' idle');
-    dr.doors.innerHTML = Array.from({ length:n }, (_, i) => `<button class="door" style="--n:${i}" data-i="${i}" ${enabled ? '' : 'disabled'} aria-label="Tür ${i + 1}"><span class="frame"><span class="behind"></span><span class="leaf"><b class="num">${i + 1}</b><i class="panel"></i><i class="panel"></i><u class="knob"></u></span></span></button>`).join('');
+    dr.doors.innerHTML = Array.from({ length:n }, (_, i) => `<button class="door" style="--n:${i};--ry:${doorRy(i, n)}" data-i="${i}" ${enabled ? '' : 'disabled'} aria-label="Tür ${i + 1}"><span class="frame"><span class="behind"></span><span class="leaf"><b class="num">${i + 1}</b><i class="panel"></i><i class="panel"></i><u class="knob"></u></span></span></button>`).join('');
   }
   function setLevel(lv) {
     D.lv = lv; const col = LC[lv], n = DL[lv].doors;
     dr.arena.style.setProperty('--lc', col); dr.arena.style.setProperty('--rc', col);
     dr.h1.textContent = `Level ${lv + 1} / ${DL.length}`; dr.h2.textContent = `Chance ${chanceOf(n)} %`;
     dls.forEach((d, i) => d.classList.toggle('cur', i === lv));
-    dr.sub.textContent = `Level ${lv + 1}: ${n} Türen, hinter einer lauert eine Bombe. Belohnung ×${DL[lv].m}`;
+    dr.sub.textContent = `${n} Türen · eine Bombe · ×${DL[lv].m}`;
   }
   function drRefresh() {
     const idle = D.ui === 'idle', decide = D.ui === 'decide', bet = idle ? (r2(parseFloat(dr.bet.value)) || 0) : D.bet;
@@ -2444,7 +2708,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
     if (D.ui !== 'idle') return;
     dls.forEach(d => d.classList.remove('done')); setLevel(0); renderDoors(0, false);
     dr.res.className = 'drresult'; dr.res.textContent = ''; dr.potBox.className = 'pot'; D.potLock = false;
-    dr.sub.textContent = 'Setze einen Einsatz und starte. Hinter einer Tür lauert eine Bombe.'; drLock(); drRefresh();
+    dr.sub.textContent = 'Einsatz setzen und starten'; drLock(); drRefresh();
   }
 
   function drStart() {
@@ -2503,7 +2767,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
       setTimeout(drIdle, 4200);
     } else {
       D.ui = 'decide'; drLock(); drRefresh();
-      dr.sub.textContent = `Cash Out ${fmt(r.payout)} oder weiter zu Level ${r.lv + 2}?`;
+      dr.sub.textContent = `Cash Out ${fmt(r.payout)} oder weiter?`;
       drSay(`Sicher! Dein Wert: ${fmt(r.payout)}. Auszahlen oder riskieren?`, 'win');
     }
   }
@@ -2595,7 +2859,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
     const handPts = h => h.reduce((a, c) => a + pts(c), 0);
     // streng erlaubt: Farbe, Zahl/Symbol oder Joker. +4 nur, wenn keine Karte der aktuellen Farbe auf der Hand ist
     // Stapeln: auf +2 darf man in jeder Farbe mit +2 antworten, auf Aussetzen mit Aussetzen. Auf +4 geht nur ein +2 in der gewünschten Farbe (nie Schwarz auf Schwarz).
-    const pendLegal = c => S.pend.kind === 'S' ? c.v === 'S' : (c.v === 'D' && (top().v === 'F' ? c.c === S.color : true));
+    const pendLegal = c => S.pend.kind === 'S' ? c.v === 'S' : ((c.v === 'D' && (top().v === 'F' ? c.c === S.color : true)) || (c.v === 'F' && top().v === 'D'));
     const strictLegal = (p, c) => S.pend ? pendLegal(c) : (c.v === 'F' ? !S.hands[p].some(x => x.c === S.color) : (c.c === 'W' || c.c === S.color || (top().c !== 'W' && c.v === top().v)));
     const hasResponse = p => S.hands[p].some(pendLegal);
     // Strafe annehmen: +n Karten ziehen und aussetzen, bzw. n Spieler werden übersprungen
@@ -2669,7 +2933,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
         case 'S': { const q = nxt(p); S.pend = { kind:'S', n:(S.pend && S.pend.kind === 'S' ? S.pend.n : 0) + 1 }; S.turn = q; EV.push({ t:'stack', kind:'S', n:S.pend.n, from:p, to:q }); settle(); break; }
         case 'V': S.dir = -S.dir; EV.push({ t:'reverse', dir:S.dir }); S.turn = nxt(p); break;
         case 'D': { const q = nxt(p), base = S.pend && S.pend.kind === 'D' ? S.pend.n : 0; S.pend = { kind:'D', n:base + 2, src:base ? S.pend.src : 'D' }; S.turn = q; EV.push({ t:'stack', kind:'D', n:S.pend.n, from:p, to:q }); settle(); break; }
-        case 'F': S.phase = 'challenge'; S.chal = { by:p, victim:nxt(p), hadColor, prev:prevColor }; EV.push({ t:'w4', by:p, victim:S.chal.victim, color:S.color }); break;
+        case 'F': if (S.pend && S.pend.kind === 'D') { const q = nxt(p); S.pend = { kind:'D', n:S.pend.n + 4, src:'F' }; S.turn = q; EV.push({ t:'stack', kind:'F', n:S.pend.n, from:p, to:q }); settle(); break; } S.phase = 'challenge'; S.chal = { by:p, victim:nxt(p), hadColor, prev:prevColor }; EV.push({ t:'w4', by:p, victim:S.chal.victim, color:S.color }); break;
         default: S.turn = nxt(p);
       }
     }
@@ -3101,12 +3365,12 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
   function statusFor(v) {
     if (v.pend) {
       const n = v.pend.n, ch = v.color ? ADJ[v.color] : '';
-      return v.pend.kind === 'S' ? `Aussetzen ×${n}: lege ein Aussetzen (jede Farbe) oder tippe auf den Stapel`
-        : (v.top && v.top.v === 'F' ? `+${n}: lege ein ${ch}es +2 oder tippe auf den Stapel (ziehe ${n})` : `+${n}: lege ein +2 (jede Farbe) oder tippe auf den Stapel (ziehe ${n})`);
+      return v.pend.kind === 'S' ? `Aussetzen ×${n}: Aussetzen legen oder ziehen`
+        : (v.top && v.top.v === 'F' ? `+${n}: ${ch}es +2 legen oder ${n} ziehen` : `+${n}: +2 oder +4 legen oder ${n} ziehen`);
     }
-    if (v.phase === 'drawn') return 'Gezogene Karte spielen oder auf PASS drücken';
-    if (v.legal.ok.length) return 'Du bist dran: spiele eine Karte oder tippe auf den Stapel';
-    return v.legal.bluff.length ? 'Nur ein +4-Bluff möglich, oder tippe auf den Stapel' : 'Keine passende Karte: tippe auf den Stapel';
+    if (v.phase === 'drawn') return 'Spielen oder PASS';
+    if (v.legal.ok.length) return 'Du bist dran';
+    return v.legal.bluff.length ? 'Nur +4-Bluff möglich, sonst ziehen' : 'Keine passende Karte: ziehen';
   }
   function unControls(v) {
     setOff(un.uno, !v.canArm); un.uno.classList.toggle('ready', v.canArm); un.uno.classList.toggle('armed', v.armed); un.pass.hidden = !v.canPass; un.draw.classList.toggle('can', v.canDraw);
@@ -3448,18 +3712,19 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
     ac(); const b = e.target.closest('button');
     if (b && !b.disabled && !b.closest('.sell, #all, #start')) sfx.click();
   });
-  $('mute').addEventListener('click', e => { audio.on = !audio.on; e.currentTarget.innerHTML = ic(audio.on ? 'volume' : 'mute'); });
+  $('mute').addEventListener('click', e => { audio.on = !audio.on; e.currentTarget.innerHTML = ic(audio.on ? 'volume' : 'mute'); if (audio.on) Music.sync(); else Music.stop(); });
   function unLayout() {
     const a = un.arena, W = a.clientWidth, H = a.clientHeight; if (!W || !H) return;
-    const hcw = Math.round(Math.max(38, Math.min(62, W * .145, H * .125)));
-    const meH = hcw * 1.5 + 30 + 40 + 20 + 16;
-    const sH = Math.max(160, H - meH), ps = Math.round(Math.max(190, Math.min(W * .9, sH * 1.18)));
-    const st = a.style; st.setProperty('--hcw', hcw + 'px'); st.setProperty('--ps', ps + 'px'); st.setProperty('--pcw', Math.round(ps * .105) + 'px');
-    st.setProperty('--scw', Math.round(ps * .05) + 'px'); st.setProperty('--avs', Math.round(Math.max(34, Math.min(58, ps * .15))) + 'px');
+    const hcw = Math.round(Math.max(40, Math.min(66, W * .15, H * .13)));
+    const meH = hcw * 1.5 + 28 + 34 + 16;
+    const sH = Math.max(170, H - meH), ps = Math.round(Math.max(200, Math.min(W * 1.04, sH * 1.55)));
+    const st = a.style; st.setProperty('--hcw', hcw + 'px'); st.setProperty('--ps', ps + 'px'); st.setProperty('--pcw', Math.round(ps * .1) + 'px');
+    st.setProperty('--scw', Math.round(ps * .05) + 'px'); st.setProperty('--avs', Math.round(Math.max(36, Math.min(60, ps * .14))) + 'px');
   }
   window.addEventListener('resize', () => { resize(); unLayout(); });
   new ResizeObserver(() => window.dispatchEvent(new Event('resize'))).observe(document.querySelector('.deck'));
-  document.querySelectorAll('.tabs button').forEach(b => b.addEventListener('click', () => setTimeout(() => window.dispatchEvent(new Event('resize')), 40)));
+  document.querySelectorAll('.tabs button').forEach(b => b.addEventListener('click', () => { setTimeout(() => window.dispatchEvent(new Event('resize')), 40); Music.play(Music.now()); }));
+  document.addEventListener('pointerdown', () => Music.sync());
   $('infoBtn').addEventListener('click', () => { const g = [...document.querySelectorAll('.deck>div[id^=g-]')].find(d => !d.hidden); const i = g && g.querySelector('.info'); if (i) i.classList.toggle('open'); });
   document.querySelectorAll('.infoclose').forEach(b => b.addEventListener('click', () => b.closest('.info').classList.remove('open')));
   unLayout();
