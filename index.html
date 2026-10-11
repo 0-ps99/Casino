@@ -1088,6 +1088,45 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
 .seat .cnt{z-index:7}
 #g-door .dock:has(#drCash:not([hidden])) #drStart{display:none}
 #g-coin .dock:has(#cfCash:not([hidden])) .cfbet{opacity:.6}
+/* ===== Türen und Coin: nie außerhalb des Bildschirms ===== */
+.doors{--dh:min(190px,calc((100cqh - 12px - (var(--rows,2) - 1) * 12px) / var(--rows,2)),calc((100cqw - 26px) / var(--per,4) / .62 - 12px))}
+.doors.idle .door{animation:none}
+.door:not(:disabled):hover{transform:rotateY(var(--ry,0deg)) translateY(-6px) translateZ(14px)}
+.door.picked{transform:rotateY(0deg) translateZ(30px) scale(1.03)}
+.door.dim{transform:rotateY(var(--ry,0deg)) translateZ(-20px)}
+.door{--ry:0deg}
+.doors{overflow:clip}
+.arena{container-type:size}
+.arena .scene{width:min(38cqh,150px);height:min(38cqh,150px);margin-top:26px}
+@container (max-height:300px){.ladder{display:none}.cfresult{font-size:1rem}}
+@container (max-height:230px){.cfresult{display:none}.arena .scene{margin-top:20px}}
+/* ===== Erfolge ===== */
+.tool.trophy{position:relative;color:#f0cf7a}
+.dotb{position:absolute;top:-4px;right:-4px;min-width:17px;height:17px;border-radius:9px;background:#e5584b;color:#fff;font:700 .62rem var(--ff-u);display:flex;align-items:center;justify-content:center;padding:0 4px;border:2px solid var(--bg)}
+@media(max-width:410px){.tools{gap:4px}.tool,.tool.icon{width:34px;height:34px;padding:0}.balance{height:34px;padding:2px 8px}.balance b{font-size:.92rem}.acpic{width:32px;height:32px}.acct{height:34px}.brand{flex:none}.app{padding:6px 8px 8px}}
+.achbox{max-width:520px;width:100%;max-height:calc(100dvh - 20px);display:flex;flex-direction:column;padding:14px;text-align:left}
+.achtop{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:6px}
+.achtop .mclose{position:static}
+.achtop .mtitle{text-align:left}.achtop .msub{text-align:left;margin:2px 0 0}.achtop .msub b{color:#f0cf7a}
+.achlist{overflow:auto;flex:1;min-height:0;scrollbar-width:thin;padding-right:2px}
+.achlist h4{font:700 .72rem var(--ff-u);letter-spacing:.16em;text-transform:uppercase;color:var(--brass2);margin:10px 0 6px}
+.achgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px}
+.ach{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:8px 10px;display:flex;flex-direction:column;gap:5px}
+.ach.max{border-color:#5fc08f;background:linear-gradient(#17261f,var(--bg))}
+.achhd{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.achhd b{font:700 .92rem var(--ff-d)}
+.pips{display:flex;gap:3px}.pips s{width:9px;height:9px;border-radius:50%;background:#2c333d;border:1px solid #3d4651;text-decoration:none}.pips s.on{background:linear-gradient(#f6dd96,#c9a24d);border-color:#f0cf7a}
+.achd{font-size:.76rem;color:var(--muted);line-height:1.25}
+.achbar{height:6px;border-radius:3px;background:#242a33;overflow:hidden}.achbar i{display:block;height:100%;border-radius:3px;background:linear-gradient(90deg,#47c487,#9fe3bd);transition:width .4s}
+.ach.max .achbar i{background:#5fc08f}
+.achft{display:flex;justify-content:space-between;font-size:.72rem;color:var(--muted);font-variant-numeric:tabular-nums}.achft b{color:#f0cf7a}
+.onet{font-size:.72rem;font-weight:700;color:#f0cf7a}.ach.max .onet{color:#8fd2ad}
+.achtoast{position:fixed;left:50%;top:10px;transform:translate(-50%,-140%);z-index:90;display:flex;align-items:center;gap:10px;min-width:250px;max-width:92vw;padding:10px 14px;border-radius:12px;background:linear-gradient(#26220f,#17140a);border:1px solid #c9a24d;box-shadow:0 12px 36px rgba(0,0,0,.6);transition:transform .4s cubic-bezier(.2,1.2,.3,1);pointer-events:none}
+.achtoast.show{transform:translate(-50%,0)}
+.achtoast .ic{font-size:1.7rem;color:#f0cf7a}
+.achtoast div{display:flex;flex-direction:column;line-height:1.2;flex:1;min-width:0}
+.achtoast small{font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:#c9a24d}.achtoast b{font:700 .95rem var(--ff-d)}.achtoast span{font-size:.72rem;color:var(--muted)}
+.achtoast em{font:700 1rem var(--ff-d);font-style:normal;color:#8fd2ad}
 </style>
 </head>
 <body>
@@ -1097,6 +1136,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
       <div class="bt"><b>LHX</b><span id="gname">CRASH-RUG</span></div></div>
     <div class="tools">
       <button id="dailyBtn" class="tool dailybtn" aria-label="Daily Reward"><i data-ic="gift"></i><span id="dailyTxt">Daily</span></button>
+      <button id="achBtn" class="tool icon trophy" aria-label="Erfolge"><i data-ic="trophy"></i><span id="achDot" class="dotb" hidden>0</span></button>
       <button id="infoBtn" class="tool icon" aria-label="Info"><i data-ic="info"></i></button>
       <button id="mute" class="tool icon" aria-label="Ton an/aus"><i data-ic="volume"></i></button>
       <button id="changeStart" class="tool icon" aria-label="Startguthaben"><i data-ic="gear"></i></button>
@@ -1332,6 +1372,14 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
 </div>
 
 
+<div class="modal" id="achModal" hidden role="dialog" aria-modal="true" aria-label="Erfolge">
+ <div class="mbox achbox">
+  <div class="achtop"><div><div class="mtitle">ERFOLGE</div><div class="msub">Abgeschlossen: <b id="achCount">0 / 0</b></div></div><button class="mclose" id="achClose" aria-label="Schließen"><i data-ic="close"></i></button></div>
+  <div class="achlist" id="achList"></div>
+ </div>
+</div>
+<div class="achtoast" id="achToast" role="status"></div>
+
 <div class="modal" id="authModal" hidden role="dialog" aria-modal="true" aria-label="Anmeldung">
  <div class="mbox authbox">
   <button class="mclose" id="authClose" aria-label="Schließen"><i data-ic="close"></i></button>
@@ -1402,6 +1450,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
     flag:'<path d="M6 21V4M6 5h11l-2.5 3.5L17 12H6"/>',
     clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
     check:'<path d="M5 12.5l4.5 4.5L19 7"/>',
+    trophy:'<path d="M8 4h8v5a4 4 0 01-8 0z"/><path d="M8 6H5a3 3 0 003 4M16 6h3a3 3 0 01-3 4"/><path d="M12 13v4M8.5 20h7M10 17h4"/>',
     user:'<circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20c.8-4 4-6 7.5-6s6.700 2 7.500 6"/>'
   };
   const ic = (n, c = '') => `<i class="ic ${c}"><svg viewBox="0 0 24 24">${ICON[n] || ''}</svg></i>`;
@@ -1933,7 +1982,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
     if (!Number.isFinite(v) || v < MIN_BET) return sfx.error(), say(`Mindesteinsatz: ${fmt(MIN_BET)}`, 'lose');
     if (v > balance) return sfx.error(), say('Einsatz höher als dein Guthaben.', 'lose');
     bet = stake = r2(v); soldTotal = 0; rugged = false; m = 1; instant = Math.random() < 0.01; candles = []; lo = 0.9; hi = 1.2;
-    setBalance(balance - bet); crashReset();
+    setBalance(balance - bet); crashReset(); Ach.add('games');
     state = 'running';
     el.banner.classList.remove('show'); el.mult.className = '';
     el.sold.textContent = fmt(0);
@@ -1950,10 +1999,10 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
     if (part <= 0) return;
     const payout = afterTax(r2(part * m));
     stake = p >= 1 || stake - part < 0.005 ? 0 : r2(stake - part);
-    soldTotal = r2(soldTotal + payout);
+    soldTotal = r2(soldTotal + payout); if (m >= 5) Ach.add('rug5x'); Ach.max('rugBest', Math.floor(m));
     setBalance(balance + payout, 'win');
     el.sold.textContent = fmt(soldTotal); sfx.sell(p, m);
-    if (stake <= 0) { if (soldTotal >= bet) setTimeout(sfx.win, 350); state = 'sold'; setSell(false); el.mult.className = 'sold'; say(`Alles verkauft bei ${fmtX(m)}. Gesamt ${fmt(soldTotal)} (${soldTotal >= bet ? '+' : '−'}${fmt(Math.abs(soldTotal - bet))})`, soldTotal >= bet ? 'win' : 'lose'); }
+    if (stake <= 0) { Ach.result('rug', soldTotal > bet, r2(soldTotal - bet)); if (soldTotal >= bet) setTimeout(sfx.win, 350); state = 'sold'; setSell(false); el.mult.className = 'sold'; say(`Alles verkauft bei ${fmtX(m)}. Gesamt ${fmt(soldTotal)} (${soldTotal >= bet ? '+' : '−'}${fmt(Math.abs(soldTotal - bet))})`, soldTotal >= bet ? 'win' : 'lose'); }
     else say(`${Math.round(p * 100)}% verkauft: +${fmt(payout)} bei ${fmtX(m)}`, 'win');
     updateUI();
   }
@@ -1970,7 +2019,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
     el.sub.className = '';
     if (lost) {
       el.sub.textContent = `Gerugged bei ${fmtX(at)}`; el.pot.textContent = fmt(0);
-      const net = r2(soldTotal - bet);
+      const net = r2(soldTotal - bet); Ach.result('rug', net > 0, net);
       say(soldTotal > 0 ? `Gerugged! Rest verloren (${fmt(lostStake)} Einsatz). Runde: ${net >= 0 ? '+' : '−'}${fmt(Math.abs(net))}` : `Gerugged! Verloren: −${fmt(bet)}`, 'lose');
       setBalance(balance, 'lose');
     } else el.sub.textContent = `Gerugged bei ${fmtX(at)}. Du warst früh genug draußen`;
@@ -2139,7 +2188,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
     if (!Number.isFinite(v) || v < MIN_BET) return sfx.error(), bjSay(`Mindesteinsatz: ${fmt(MIN_BET)}`, 'lose');
     if (v > balance) return sfx.error(), bjSay('Einsatz höher als dein Guthaben.', 'lose');
     B.st = 'busy'; B.bet = v; B.rev = false; B.p = []; B.d = [];
-    setBalance(balance - v);
+    setBalance(balance - v); Ach.add('games');
     bel.cur.textContent = fmt(v); bel.pC.innerHTML = bel.dC.innerHTML = ''; showTotals();
     bel.stamp.classList.remove('show'); bel.pHand.className = bel.dHand.className = 'hand';
     renderChips(v);
@@ -2201,7 +2250,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
     if (res === 'bj' || res === 'win') { bel.pHand.classList.add('win'); bel.dHand.classList.add('lose'); }
     else if (res === 'lose') { bel.pHand.classList.add('lose'); bel.dHand.classList.add('win'); }
     pay = afterTax(pay);
-    setBalance(balance + pay, pay > bet ? 'win' : 'lose');
+    setBalance(balance + pay, pay > bet ? 'win' : 'lose'); if (res !== 'push') Ach.result('bj', res === 'bj' || res === 'win', r2(pay - bet)); if (res === 'bj') Ach.once('bjNat');
     const net = r2(pay - bet), netTxt = (net >= 0 ? '+' : '−') + fmt(Math.abs(net));
     bel.res.textContent = netTxt; floatText(netTxt, net > 0 ? (res === 'bj' ? 'gold' : 'win') : 'lose');
     bjStatus(txt, cls); bjSay(`${txt} (${netTxt})`, net > 0 ? 'win' : 'lose');
@@ -2375,7 +2424,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
       if (!Number.isFinite(v) || v < MIN_BET) return sfx.error(), cfSay(`Mindesteinsatz: ${fmt(MIN_BET)}`, 'lose');
       if (v > balance) return sfx.error(), cfSay('Einsatz höher als dein Guthaben.', 'lose');
       if (!Coin.start(v, C.lv)) return;
-      setBalance(balance - v); C.shown = Coin.info();
+      setBalance(balance - v); Ach.add('games'); C.shown = Coin.info();
     }
     const lv = Coin.LV[C.lv], res = Coin.flip(C.side);   // maßgebliches Ergebnis kommt ausschließlich aus der Engine
     if (!res) return;
@@ -2446,7 +2495,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
     const sideTxt = res.side === 'kopf' ? 'KOPF' : 'ZAHL', cp = rel(cel.coin);
     C.shown = Coin.info();
     if (res.win) {
-      C.ui = 'won';
+      C.ui = 'won'; Ach.once('coinFirst'); Ach.add('coinWins'); Ach.max('coinStreak', res.streak);
       const big = res.streak >= 3 || C.lv === 'extreme' || C.lv === 'high';
       sfx.cfWin(res.streak); cfFlash('#ffd75e', .8); cfShake(); cfRing('#ffd75e');
       cfEmit(big ? 220 : 140, cp.x, cp.y, { dir:-1.57, spread:2.6, speed:10, life:70, g:.2, type:'conf', cols:GOLD });
@@ -2465,7 +2514,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
       cel.crack.classList.remove('show'); void cel.crack.getBoundingClientRect(); cel.crack.classList.add('show'); setTimeout(() => cel.crack.classList.remove('show'), 1950);
       cel.res.className = 'cfresult lose'; cel.res.textContent = `${sideTxt}. DANEBEN!`;
       cel.potBox.className = 'pot lose'; cfCount(cel.pot, res.stake, 0, 800, () => { C.potLock = false; cfRefresh(); });
-      cfFloat('−' + fmt(res.stake), 'lose'); setBalance(balance, 'lose');
+      cfFloat('−' + fmt(res.stake), 'lose'); setBalance(balance, 'lose'); Ach.result('coin', false, 0);
       cfSay(`Verloren: ${fmt(res.stake)} sind weg.`, 'lose');
       cel.scene.classList.add('idle');
       if (balance < MIN_BET) { cel.reset.style.display = 'block'; cfSay('Dein Guthaben ist aufgebraucht.', 'lose'); }
@@ -2477,7 +2526,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
     if (C.ui !== 'won') return;
     const orig = Coin.info().orig, gross = Coin.cashOut(); if (!gross) return; const v = afterTax(gross);
     C.shown = Coin.info(); C.ui = 'idle'; C.potLock = true;
-    setBalance(balance + v, 'win'); sfx.cfCash();
+    setBalance(balance + v, 'win'); sfx.cfCash(); Ach.result('coin', true, r2(v - orig));
     const net = r2(v - orig);
     cfSay(`Gewinn gesichert: +${fmt(v)} (${net >= 0 ? '+' : '−'}${fmt(Math.abs(net))} Gewinn)`, 'win');
     cel.res.className = 'cfresult win'; cel.res.textContent = 'GEWINN GESICHERT!';
@@ -2696,6 +2745,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
     const bolts = (n, gap) => { for (let i = 0; i < n; i++) setTimeout(() => fx.bolt(Math.random() * W, 0, c.x + (Math.random() - .5) * 80, c.y, i % 2 ? '#fff' : col), i * gap); };
     const label = SC[k].l === 'SPIN AGAIN' ? 'FREISPIN!' : SC[k].l;
     if (res.payout > 0) setBalance(balance + res.payout, 'win');
+    Ach.add('spins'); if (k !== 'spin') Ach.result('spin', res.payout > 0, r2(res.payout - S.bet)); if (k === 'x135') Ach.once('spin135'); if (k === 'x50') Ach.once('spin50');
     switch (k) {
       case 'nix':
         sfx.spNix(); spFlash('#1a1060', .55); spShake(); fx.emit(36, c.x, c.y, { speed:4, life:50, g:.25, color:'#6b6bff' });
@@ -2730,7 +2780,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
     if (v > SP_MAX) return sfx.error(), spSay(`Maximaleinsatz beim Spinner: ${fmt(SP_MAX)}`, 'lose');
     if (v > balance) return sfx.error(), spSay('Einsatz höher als dein Guthaben.', 'lose');
     if (!Spin.begin(v)) return;
-    setBalance(balance - v); S.ui = 'spinning'; S.bet = v; S.free = 0; spLock(); spRefresh(); spSay('');
+    setBalance(balance - v); Ach.add('games'); S.ui = 'spinning'; S.bet = v; S.free = 0; spLock(); spRefresh(); spSay('');
     sel.potBox.className = 'pot'; sel.pot.textContent = fmt(0);
     let res;
     for (;;) {
@@ -2852,7 +2902,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
     if (!Number.isFinite(v) || v < MIN_BET) return sfx.error(), drSay(`Mindesteinsatz: ${fmt(MIN_BET)}`, 'lose');
     if (v > balance) return sfx.error(), drSay('Einsatz höher als dein Guthaben.', 'lose');
     if (!Door.begin(v)) return;
-    setBalance(balance - v); D.ui = 'pick'; D.bet = v; D.potLock = false;
+    setBalance(balance - v); Ach.add('games'); D.ui = 'pick'; D.bet = v; D.potLock = false;
     dls.forEach(d => d.classList.remove('done')); setLevel(0); renderDoors(0, true);
     dr.res.className = 'drresult'; dr.res.textContent = ''; dr.potBox.className = 'pot';
     sfx.drLevel(); drLock(); drRefresh(); drSay('');
@@ -2890,7 +2940,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
     // verpasste Bombe zeigen (nächstes Level wird neu gewürfelt)
     const bd = doors[r.bomb]; bd.classList.remove('dim'); bd.querySelector('.behind').className = 'behind ghost'; bd.querySelector('.behind').innerHTML = ART.bomb; bd.classList.add('open'); sfx.drCreak();
     if (r.final) {
-      setBalance(balance + r.payout, 'win'); D.ui = 'idle';
+      setBalance(balance + r.payout, 'win'); D.ui = 'idle'; Ach.result('door', true, r2(r.payout - r.bet)); Ach.once('door6');
       sfx.spMega(); drFlash('#fff', .9); drShake();
       const W = drfx.w, H = drfx.h;
       drfx.emit(260, c.x, c.y, { speed:10, life:70, g:.1, cols:[col, '#fff', '#ffe14d', '#ff2bd6'] });
@@ -2919,7 +2969,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
     dr.crack.classList.remove('show'); void dr.crack.getBoundingClientRect(); dr.crack.classList.add('show'); setTimeout(() => dr.crack.classList.remove('show'), 1950);
     dr.res.className = 'drresult lose'; dr.res.textContent = 'BOOM! ALLES VERLOREN';
     D.potLock = true; dr.potBox.className = 'pot lose'; cfCount(dr.pot, r.lv === 0 ? r.bet : afterTax(r2(r.bet * DL[r.lv - 1].m)), 0, 900, () => { D.potLock = false; });
-    drFloat('−' + fmt(r.bet), 'lose'); setBalance(balance, 'lose');
+    drFloat('−' + fmt(r.bet), 'lose'); setBalance(balance, 'lose'); Ach.result('door', false, 0);
     doors.forEach((d, j) => { if (j !== r.bomb) setTimeout(() => { d.classList.remove('dim'); const b = d.querySelector('.behind'); b.className = 'behind ghost'; b.innerHTML = ART.check; d.classList.add('open'); }, 400 + j * 120); });
     dls[r.lv].classList.remove('cur'); dr.h2.textContent = 'Bombe!';
     D.ui = 'idle'; drSay(`Bombe hinter Tür ${r.bomb + 1}! Verloren: ${fmt(r.bet)}.`, 'lose'); drLock(); drRefresh();
@@ -2937,7 +2987,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
   function drCash() {
     if (D.ui !== 'decide') return;
     const bet = D.bet, gross = Door.cashOut(); if (!gross) return; const v = afterTax(gross);
-    D.ui = 'idle'; setBalance(balance + v, 'win'); sfx.cfCash(); drfx.size(dr.arena);
+    D.ui = 'idle'; setBalance(balance + v, 'win'); Ach.result('door', true, r2(v - bet)); sfx.cfCash(); drfx.size(dr.arena);
     const c = drRel(dr.doors), W = drfx.w;
     drFlash('#7ae582', .45);
     drfx.emit(100, c.x, c.y, { dir:-1.57, spread:2.4, speed:9, life:65, g:.22, type:'conf', cols:['#ffd75e', '#7ae582', '#fff'] });
@@ -3574,6 +3624,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
     clearInterval(U.tick); U.tick = null; clearTimeout(U.timer); closeWindow(); U.waitHuman = false; renderHand(); unLockUI(); [1, 2, 3].forEach(p => { seatEls[p].classList.remove('turn'); setThink(p, false); }); un.meWrap.classList.remove('turn');
     const w = v.winner, rank = v.rank || [], me = rank.find(r => r.p === 0), place = me ? me.place : 4, mult = PAYOUT[place - 1], timeout = U.timeUp;
     let title, body, pay = 0;
+    if (w !== -1) { const win1 = place === 1 && w !== -2; Ach.result('uno', win1, 0); if (win1) { Ach.add('unoFirst'); Ach.add('unoPts', rank.filter(r => r.p > 0).reduce((a, r) => a + (r.pts || 0), 0)); } }
     if (w === -1) { setBalance(balance + U.bet); title = 'Unentschieden'; body = 'Niemand konnte mehr spielen. Dein Einsatz kommt zurück.'; unSay('Unentschieden, Einsatz zurück.'); }
     else {
       pay = afterTax(r2(U.bet * mult));
@@ -3614,7 +3665,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
     const v = r2(parseFloat(un.bet.value));
     if (!Number.isFinite(v) || v < MIN_BET) return sfx.error(), unSay(`Mindesteinsatz: ${fmt(MIN_BET)}`, 'lose');
     if (v > balance) return sfx.error(), unSay('Einsatz höher als dein Guthaben.', 'lose');
-    setBalance(balance - v); U.bet = v; U.ui = 'playing'; U.timeUp = false; un.log.innerHTML = ''; un.pop.hidden = true; unSay(''); unPanel(); unRefresh();
+    setBalance(balance - v); Ach.add('games'); U.bet = v; U.ui = 'playing'; U.timeUp = false; un.log.innerHTML = ''; un.pop.hidden = true; unSay(''); unPanel(); unRefresh();
     [0, 1, 2, 3].forEach(p => setMood(p, 'n')); unfx.size(un.arena);
     U.fast = false; U.roundEnd = performance.now() + ROUND_MS; clearInterval(U.tick); U.tick = setInterval(unTick, 200); unTick();
     Uno.start(); unPump();
@@ -3783,7 +3834,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
         burst(320); conf(240); for (let k = 0; k < 8; k++) coins(40, k * 300); for (let k = 0; k < 6; k++) setTimeout(() => rain(90), k * 330);
         fire(14, 260); bolts(8, 260); for (let k = 0; k < 3; k++) setTimeout(() => { dy.shock.classList.remove('go'); void dy.shock.offsetWidth; dy.shock.classList.add('go'); }, 500 + k * 700); break;
     }
-    if (o.v > 0) { setBalance(balance + o.v, 'win'); cfCount(dy.amt, 0, o.v, o.key === 'jack' ? 2200 : 900); }
+    Ach.add('daily'); if (o.v > 0) { setBalance(balance + o.v, 'win'); cfCount(dy.amt, 0, o.v, o.key === 'jack' ? 2200 : 900); }
     dy.sub.textContent = o.v ? `${fmt(o.v)} wurden deinem Guthaben gutgeschrieben.` : 'Leider leer. Morgen wartet eine neue Truhe!';
     dyBusy = false; dy.close.disabled = false; dyRefresh();
   }
@@ -3940,7 +3991,7 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
       const name = $('auName').value.trim();
       if (!/^[\p{L}\p{N}_\-]{3,16}$/u.test(name)) { say(3, 'Benutzername: 3 bis 16 Zeichen, nur Buchstaben, Zahlen, _ und -.', 'err'); return; }
       if (!acct) return;
-      acct.username = name; acct.pic = tmpPic || ''; store(); refresh(); close();
+      acct.username = name; acct.pic = tmpPic || ''; store(); refresh(); close(); Ach.once('profile');
     }
     $('auSend').onclick = sendCode; $('auVerify').onclick = verify; $('auSave').onclick = saveProfile;
     $('auEmail').addEventListener('keydown', e => { if (e.key === 'Enter') sendCode(); });
@@ -3961,6 +4012,100 @@ label{color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:up
     document.addEventListener('click', e => { const b = e.target.closest && e.target.closest('button'); if (b && GATED.has(b.id) && !ok()) { e.stopImmediatePropagation(); e.preventDefault(); open(); } }, true);
     setupGoogle(); refresh();
     return { ok, open };
+  })();
+
+  // ---- Erfolge ----
+  const Ach = (() => {
+    const KEY = 'lhx_ach', MULT = [1, 2.5, 6, 15, 40];
+    const T = [
+      { id:'games', name:'Dauerspieler', c:'games', t:[5, 10, 25, 50, 100], base:1, d:n => `Spiele ${n} Runden` },
+      { id:'wins', name:'Gewinner', c:'wins', t:[3, 10, 25, 50, 100], base:2, d:n => `Gewinne ${n} Runden` },
+      { id:'losses', name:'Pechvogel', c:'losses', t:[3, 10, 25, 50, 100], base:.6, d:n => `Verliere ${n} Runden` },
+      { id:'uno', name:'UNO-Champion', c:'unoFirst', t:[1, 3, 7, 15, 30], base:4, d:n => `Werde ${n}× Erster bei UNO` },
+      { id:'bj', name:'Kartenhai', c:'bjWins', t:[3, 10, 25, 50, 100], base:2, d:n => `Gewinne ${n}× beim Blackjack` },
+      { id:'door', name:'Türknacker', c:'doorWins', t:[1, 3, 7, 15, 30], base:4, d:n => `Gewinne ${n}× bei Risk the Door` },
+      { id:'rug5', name:'Rug-Profi', c:'rug5x', t:[1, 3, 7, 15, 30], base:5, d:n => `Verkaufe ${n}× bei mindestens 5× im Crash-Rug` },
+      { id:'spins', name:'Glücksrad-Fan', c:'spins', t:[5, 15, 40, 100, 250], base:1, d:n => `Drehe ${n}× am Glücksrad` },
+      { id:'coin', name:'Münzmeister', c:'coinWins', t:[3, 10, 25, 50, 100], base:1.5, d:n => `Gewinne ${n} Münzwürfe` },
+      { id:'streak', name:'Serienheld', c:'coinStreak', max:true, t:[2, 3, 4, 5, 6], base:8, d:n => `Erreiche ${n} Siege in Folge beim Coin Flip` },
+      { id:'big', name:'Dicker Fang', c:'bigWin', max:true, money:true, t:[5, 25, 100, 500, 2500], base:3, d:n => `Gewinne in einer Runde mindestens $${n}` },
+      { id:'daily', name:'Stammgast', c:'daily', t:[1, 3, 7, 14, 30], base:2, d:n => `Öffne ${n}× die Daily-Truhe` }
+    ];
+    const O = [
+      { id:'profile', name:'Willkommen', r:1, d:'Erstelle dein Profil' },
+      { id:'coinFirst', name:'Erster Wurf', r:2, d:'Gewinne deinen ersten Coinflip' },
+      { id:'bjNat', name:'Natürlicher Blackjack', r:6, d:'Bekomme Blackjack bei Blackjack' },
+      { id:'unoPts', name:'Punktesammler', r:10, d:'Sammle 100 Punkte bei UNO', c:'unoPts', n:100 },
+      { id:'rug10', name:'Kalte Nerven', r:20, d:'Verkaufe im Crash-Rug bei mindestens 10×', c:'rugBest', n:10 },
+      { id:'spin135', name:'Dickes Segment', r:15, d:'Triff die 13.5× auf dem Glücksrad' },
+      { id:'spin50', name:'Jackpot', r:50, d:'Triff die 50× auf dem Glücksrad' },
+      { id:'door6', name:'Alle Türen', r:40, d:'Räume alle 6 Level bei Risk the Door ab' },
+      { id:'bal10k', name:'Hoher Roller', r:25, d:'Erreiche $10,000 Guthaben', c:'bal', n:10000 }
+    ];
+    let S = { c:{}, lv:{}, once:{} }, queue = [], showing = false, unseen = 0;
+    try { const x = JSON.parse(localStorage.getItem(KEY) || 'null'); if (x) S = { c:x.c || {}, lv:x.lv || {}, once:x.once || {} }; } catch (e) {}
+    const store = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} };
+    const rew = (a, i) => Math.round(a.base * MULT[i] * 2) / 2;
+    const fmtN = (a, n) => a.money ? '$' + n : String(n);
+    const dot = () => { const e = $('achDot'); if (e) { e.hidden = unseen <= 0; e.textContent = unseen > 9 ? '9+' : unseen; } };
+    function toast(title, sub, r) {
+      queue.push({ title, sub, r }); if (!showing) next();
+    }
+    function next() {
+      const q = queue.shift(); if (!q) { showing = false; return; }
+      showing = true; const e = $('achToast'); e.innerHTML = `${ic('trophy')}<div><small>Erfolg freigeschaltet</small><b>${q.title}</b><span>${q.sub}</span></div><em>+${fmt(q.r)}</em>`;
+      e.classList.remove('show'); void e.offsetWidth; e.classList.add('show'); sfx.ach(); setTimeout(() => { e.classList.remove('show'); setTimeout(next, 350); }, 3000);
+    }
+    function pay(r) { setBalance(balance + r, 'win'); }
+    function check() {
+      let changed = false;
+      T.forEach(a => {
+        const v = S.c[a.c] || 0; let lv = S.lv[a.id] || 0;
+        while (lv < 5 && v >= a.t[lv]) { const r = rew(a, lv); lv++; S.lv[a.id] = lv; changed = true; unseen++; pay(r); toast(`${a.name} ${'I'.repeat(lv).replace('IIIII', 'V').replace('IIII', 'IV')}`, a.d(a.t[lv - 1]), r); }
+      });
+      O.forEach(o => {
+        if (S.once[o.id]) return;
+        if (o.c && (S.c[o.c] || 0) >= o.n) { S.once[o.id] = 1; changed = true; unseen++; pay(o.r); toast(o.name, o.d, o.r); }
+      });
+      if (changed) { store(); dot(); render(); }
+    }
+    function once(id) {
+      const o = O.find(x => x.id === id); if (!o || S.once[id]) return;
+      S.once[id] = 1; unseen++; pay(o.r); toast(o.name, o.d, o.r); store(); dot(); render();
+    }
+    function add(c, n = 1) { S.c[c] = (S.c[c] || 0) + n; store(); check(); }
+    function max(c, v) { if (v > (S.c[c] || 0)) { S.c[c] = v; store(); check(); } }
+    function result(game, win, net) {
+      S.c[win ? 'wins' : 'losses'] = (S.c[win ? 'wins' : 'losses'] || 0) + 1;
+      if (win) S.c[game + 'Wins'] = (S.c[game + 'Wins'] || 0) + 1;
+      if (net > 0) S.c.bigWin = Math.max(S.c.bigWin || 0, Math.floor(net));
+      S.c.bal = Math.max(S.c.bal || 0, Math.floor(balance));
+      store(); check();
+    }
+    function render() {
+      const el = $('achList'); if (!el) return;
+      let done = 0, total = 0;
+      const tiers = T.map(a => {
+        const lv = S.lv[a.id] || 0, v = S.c[a.c] || 0; done += lv; total += 5;
+        const tgt = lv < 5 ? a.t[lv] : a.t[4], pct = lv >= 5 ? 100 : Math.min(100, v / tgt * 100);
+        const pips = [0, 1, 2, 3, 4].map(i => `<s class="${i < lv ? 'on' : ''}"></s>`).join('');
+        return `<div class="ach ${lv >= 5 ? 'max' : ''}"><div class="achhd"><b>${a.name}</b><span class="pips">${pips}</span></div><div class="achd">${a.d(tgt)}</div><div class="achbar"><i style="width:${pct}%"></i></div><div class="achft"><span>${lv >= 5 ? 'Abgeschlossen' : fmtN(a, Math.min(v, tgt)) + ' / ' + fmtN(a, tgt)}</span><b>${lv >= 5 ? '' : '+' + fmt(rew(a, lv))}</b></div></div>`;
+      }).join('');
+      let od = 0;
+      const ones = O.map(o => {
+        const ok = !!S.once[o.id]; if (ok) od++;
+        const pr = o.c && !ok ? `<div class="achbar"><i style="width:${Math.min(100, (S.c[o.c] || 0) / o.n * 100)}%"></i></div>` : '';
+        return `<div class="ach one ${ok ? 'max' : ''}"><div class="achhd"><b>${o.name}</b><span class="onet">${ok ? 'Erledigt' : '+' + fmt(o.r)}</span></div><div class="achd">${o.d}</div>${pr}</div>`;
+      }).join('');
+      $('achCount').textContent = `${done + od} / ${total + O.length}`;
+      el.innerHTML = `<h4>Stufen-Erfolge</h4><div class="achgrid">${tiers}</div><h4>Einmalige Erfolge</h4><div class="achgrid">${ones}</div>`;
+    }
+    function open() { unseen = 0; dot(); render(); $('achModal').hidden = false; }
+    sfx.ach = () => { arp([784, 988, 1175, 1568], .08, .07, .4); bellS(2093, .05, .28, .8); };
+    $('achBtn').onclick = open; $('achClose').onclick = () => { $('achModal').hidden = true; };
+    $('achModal').addEventListener('click', e => { if (e.target === $('achModal')) $('achModal').hidden = true; });
+    render(); dot();
+    return { add, max, once, result, open, check };
   })();
 
   function unLayout() {
